@@ -1,0 +1,44 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.toDoApp {
+    background-color: black;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    width: 30%;
+    /* vh => viewport height */
+}
+
+.inputSection {
+    background-color: white;
+    padding: 20px;
+}
+
+.btn {
+    background-color: red;
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-transform: uppercase;
+}
+
+.listOfItems {
+    margin: 10px;
+}
+
+.btnSection {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.para {
+    background-color: salmon;
+    margin: 10px;
+    padding: 10px;
+}
