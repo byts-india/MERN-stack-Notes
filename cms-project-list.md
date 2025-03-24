@@ -164,7 +164,7 @@ needs of its users.
 33. **Volunteer Recruitment and Management CMS**
 34. **Membership and Subscription Management CMS**
 35. **Complaint Tracking and Resolution CMS**
-36. **Art Gallery and Exhibition Management CMS**
+36. **Apartment Management System CMS**
 37. **Website Template CMS**
 38. **Resume and CV Management CMS**
 39. **Pet Adoption and Care Management CMS**
