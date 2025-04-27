@@ -28,7 +28,6 @@ app.listen(PORT, () => {
 // import
 const express = require("express");
 const logger = require('morgan');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const movieRouter = require("./routes/movie");
@@ -38,7 +37,7 @@ const app = express();
 
 // middle ware
 app.use(logger("short"));
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(cors());
 // routing
 app.use('/movie', movieRouter);
