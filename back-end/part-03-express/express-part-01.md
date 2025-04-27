@@ -31,7 +31,6 @@ NOTES:
 // all dependency import statements
 const express = require('express');
 const logger = require('morgan');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const sampleRouter = require('./routes/sample');
@@ -40,7 +39,7 @@ const sampleRouter = require('./routes/sample');
 const app = express();
 
 // middle-ware
-app.use(bodyParser.json());
+app.use(express.json());
 app.use(logger('dev'));
 app.use(cors());
 
@@ -114,10 +113,6 @@ packages used for this application and its usage
   - <https://www.npmjs.com/package/cors>
   - <https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors>
   - <https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSDisabled>
-- `body-parser`
-  - Node.js body parsing middleware.
-  - Parse incoming request bodies in a middleware before your handlers, available under the req.body property.
-  - <https://www.npmjs.com/package/body-parser>
 
 Where to search for this packages
 
