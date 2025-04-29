@@ -87,7 +87,7 @@ delay(1000, "1 executed")
 
 - async await
 
-```
+```Javascript
 function delay(ms, message) {
   return new Promise((resolve) => {
     setTimeout(() => {
