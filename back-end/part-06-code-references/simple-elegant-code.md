@@ -24,7 +24,7 @@
 2. use below commands
 3. `npm init`, then press enter until `package.json` file got created.
 4. `npm install nodemon --save-dev`
-5. `npm install express morgan cors body-parser mongoose`
+5. `npm install express morgan cors mongoose`
 6. update your `package.json` with code given below.
 
 ```json
@@ -76,7 +76,6 @@ app.listen(PORT, () => {
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
-const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const likeRouter = require("./like-routes");
@@ -95,7 +94,7 @@ const app = express();
 // 🔖 middle ware
 app.use(morgan("tiny"));
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 // 🔖 to store your images, video or audio files in back-end and 
 //    access it on front-end side.
 // NOTE: eg: http://localhost:3434/

@@ -24,7 +24,8 @@
 
 ```json
      "scripts": {
-        "start": "nodemon index.js",
+        "start":"node index.js",
+        "dev": "nodemon index.js",
      }
 ```
 
@@ -67,7 +68,6 @@ app.listen(PORT, () => {
 const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
-const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 // custom files imports
@@ -87,7 +87,7 @@ const app = express();
 // middle ware
 app.use(morgan("tiny"));
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
 // routers
 // TODO: add your router below 👇
