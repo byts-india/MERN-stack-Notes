@@ -31,9 +31,83 @@
 ## additional
 
 - callback
+
+```javascript
+function greet(name, callback) {
+  console.log(`Hello, ${name}!`);
+  callback(); // Execute the callback
+}
+
+function sayGoodbye() {
+  console.log('Goodbye!');
+}
+
+greet('Alice', sayGoodbye);
+// Output:
+// Hello, Alice!
+// Goodbye!
+```
+
 - synchronous callback
+  - Executes immediately in sequence.
 - asynchronous callback
-- nested callback
-- callback hell
+  - Executes after some asynchronous operation completes.
+
+- nested callback & callback hell
+
+```Javascript
+setTimeout(() => {
+  console.log("1 executed");
+  setTimeout(() => {
+    console.log("2 executed");
+    setTimeout(() => {
+      console.log("3 executed");
+    },1000);
+  },1000);
+},1000);
+```
+
 - Promise
+
+```Javascript
+function delay(ms, message) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log(message);
+      resolve();
+    }, ms);
+  });
+}
+
+delay(1000, "1 executed")
+  .then(() => delay(1000, "2 executed"))
+  .then(() => delay(1000, "3 executed"))
+  .catch(err => console.error(err));
+```
+
 - async await
+
+```
+function delay(ms, message) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      console.log(message);
+      resolve();
+    }, ms);
+  });
+}
+
+async function executeTasks() {
+  try {
+    await delay(1000, "1 executed");
+    await delay(1000, "2 executed");
+    await delay(1000, "3 executed");
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+executeTasks();
+```
+
+
