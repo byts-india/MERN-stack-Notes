@@ -14,12 +14,14 @@ Node.js (Node js) is an open-source and cross-platform JavaScript runtime enviro
 Example of Node.js Applications
 
 ```javascript
-var http = require('http');
+// create a http server without using express, just by using node.js
+var http = require("http");
 
 http.createServer(function (req, res) {
-  res.writeHead(200, {'Content-Type': 'text/plain'});
-  res.end('Welcome to GeeksforGeeks Node.js Tutorial');
-}).listen(8080);
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("Welcome to GeeksforGeeks Node.js Tutorial");
+  })
+  .listen(8080);
 ```
 
 ## Why to learn Node.js?

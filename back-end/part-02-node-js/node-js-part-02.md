@@ -11,6 +11,8 @@
 
 ## MODULES in node js
 
+### Below is example of how to use import and export in nodejs using `commonJS method`.
+
 ```javascript
 // math.js - module file
 function add(a, b) {
@@ -34,8 +36,8 @@ const math = require('./math');
 console.log(math.add(5, 3)); // Output: 8
 console.log(math.subtract(10, 4)); // Output: 6
 ```
-
-### Inbuid modules in node js
+ 
+### In build modules in node js
 
 Node.js comes with several built-in modules that are commonly used for backend development.
 

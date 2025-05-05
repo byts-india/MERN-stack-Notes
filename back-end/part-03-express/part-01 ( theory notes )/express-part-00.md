@@ -12,7 +12,8 @@ add code `"start": "nodemon index.js",` as shown in `package.json`.
 
 ```javascript
 "scripts": {
-    "start": "nodemon index.js",
+    "start":"node index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
 ```
@@ -20,9 +21,9 @@ add code `"start": "nodemon index.js",` as shown in `package.json`.
 ### commands to install packages
 
 - install nodemon as dev dependencies
-  - command: `npm install nodemon --save-dev`
+  - command: `npm install nodemon --save-dev` or `npm i nodemon -D`
 - install other packages as dependencies
-  - command: `npm install express cors morgan body-parser`
+  - command: `npm install express`
 
 ---
 
@@ -40,7 +41,6 @@ const PORT = 3344;
 
 // listening server
 app.listen(PORT, () => {
-    console.log("my app is listening... " + PORT);
-})
-
+  console.log("my app is listening... " + PORT);
+});
 ```

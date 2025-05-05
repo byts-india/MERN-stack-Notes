@@ -4,8 +4,8 @@
 
 ```json
    "scripts": {
-      "start": "nodemon index.js",
-      "main": "node index.js",
+       "start": "node index.js",
+      "dev": "nodemon index.js",
       "test": "echo \"Error: no test specified\" && exit 1"
    }
 
@@ -14,7 +14,7 @@
 `index.js`
 
 ```javascript
-const app = require('./app');
+const app = require('./src/app');
 
 const PORT = 3434;
 app.listen(PORT, () => {
@@ -27,8 +27,7 @@ app.listen(PORT, () => {
 ```javascript
 // import
 const express = require("express");
-const logger = require('morgan');
-const cors = require('cors');
+const morgan = require('morgan');
 
 const movieRouter = require("./routes/movie");
 
@@ -36,9 +35,8 @@ const movieRouter = require("./routes/movie");
 const app = express();
 
 // middle ware
-app.use(logger("short"));
+app.use(morgan("dev"));
 app.use(express.json());
-app.use(cors());
 // routing
 app.use('/movie', movieRouter);
 
@@ -85,6 +83,13 @@ movieRouter.put('/:id', (req, res) => {
         msg: 'your data has been updated'
     });
 });
+
+movieRouter.delete('/:id',(req,res)=> {
+    // TODO :
+    res.json({
+        msg: 'your data has been deleted'
+    });
+})
 
 module.exports = movieRouter;
 ```

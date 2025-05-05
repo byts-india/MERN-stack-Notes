@@ -12,56 +12,64 @@
   - APIs can return data in formats like JSON, XML (or) HTML.
 
 Types of API:
-  - [Web API] : used for web-based communications (REST Api, SOAP, GraphQL )
-  - [library API] : Used within the prog lang ( python request )
-  - [OS system api] : Used to interact with the OS (windows API).
 
-## what is rest API 
-  - An architectural style for designing networked applications.
-  - It use HTTP protocols and are stateless, meaning each request from a client contains all the information needed for process request.
-  - Rest APIs are resource-based and resource are identified by 
-  URLs  (uniform resource locater )
+- [Web API] : used for web-based communications (REST Api, SOAP, GraphQL )
+- [library API] : Used within the prog lang ( python request )
+- [OS system api] : Used to interact with the OS (windows API).
+
+## what is rest API
+
+- An architectural style for designing networked applications.
+- It use HTTP protocols and are stateless, meaning each request from a client contains all the information needed for process request.
+- Rest APIs are resource-based and resource are identified by
+  URLs (uniform resource locater )
 
 ### Key principles of REST Apis:
-  -[stateless] : server will not store request details 
-                  about client.
-  -[client server architecture] :
-                  hosts: ( client & server )
-                        - client: requesting
-                        - server: responding
-  -[uniform interface]: consistent and standarized way of interacting with resource.
-  -[Resource based]: Everything is a resource ( users, products ) identified by urls.
-  -[HTTP Methods]: Use standard HTTP Methods for CRUD operations.
-    -`GET`: Retrive a resource
-    -`POST`: create a new resource
-    -`PUT/PATCH`: updating an existing resource
-    -`DELETE`: delete a resource
-  -[Representation]: Resource are be represented in multiple formats (JSON, XML)
+
+      -[stateless] : server will not store request details
+                      about client.
+      -[client server architecture] :
+                      hosts: ( client & server )
+                            - client: requesting
+                            - server: responding
+      -[uniform interface]: consistent and standarized way of interacting with resource.
+      -[Resource based]: Everything is a resource ( users, products ) identified by urls.
+      -[HTTP Methods]: Use standard HTTP Methods for CRUD operations.
+        -`GET`: Retrive a resource
+        -`POST`: create a new resource
+        -`PUT/PATCH`: updating an existing resource
+        -`DELETE`: delete a resource
+      -[Representation]: Resource are be represented in multiple formats (JSON, XML)
 
 ### RestApi examples:
 
-- GET     /users
-- GET     /users/12
-- POST    /users
-- PUT     /users/1
-- DELETE  /users/1
+    - GET     /users
+    - GET     /users/12
+    - POST    /users
+    - PUT     /users/1
+    - DELETE  /users/1
 
+## HTTP status code
 
-HTTP status code
-----------------
 - 2xx (success)
-  * 200 OK : Request successfull
-  * 201 CREATED : Resource created successfull
+  - 200 OK : Request successfull
+  - 201 CREATED : Resource created successfull
+  - 204 No Content : like content updated
+- 3xx ( redirection )
 - 4xx (client error)
-    408 
+  - 400 - bad request
+  - 401 Unauthorized
+  - 403 Forbidden
+  - 404 Not Found
 - 5xx (server error)
-
+  - 500 Internal Server Error
+  - 503 Service Unavailable
 
 Javascript Object notation ( jSON )
 
- {
-    "name":number, string, object, array
- }
+{
+"name":number, string, object, array
+}
 
 ## definitions
 
@@ -72,7 +80,7 @@ Javascript Object notation ( jSON )
   - A device or software application that provides services or resources to clients.
   - Servers are typically high-powered computers optimized for processing requests from multiple clients simultaneously.
 - [client-server architecture]
- drawing
+  <img src='https://media.geeksforgeeks.org/wp-content/uploads/20240419170238/Client-Server-Model.webp'/>
 - Request:
   - A message sent by a client to a server, typically asking for access to a specific resource or service. Requests can take various forms, such as HTTP requests in web applications.
   - HTTP: Hyper Text Transfer Protocol
@@ -99,11 +107,12 @@ Javascript Object notation ( jSON )
   - mongo db ( stored as document )
   - couch db ( stored as document )
   - firebase ( stored as document )
-  - graphQL  ( stored as graphs )
-  - neo4j    ( stored as graphs )
+  - graphQL ( stored as graphs )
+  - neo4j ( stored as graphs )
 - API:
-  - API (Application Programming Interface): A set of rules and protocols for building and interacting with software applications.
- API is a software interface that allows two applications to interact with each other without any user intervention.
+  - API (Application Programming Interface): A set of rules and protocols for building and interacting with softwar
+  - e applications.
+    API is a software interface that allows two applications to interact with each other without any user intervention.
 - RESTful API:
   - An architectural style for designing networked applications, based on HTTP and the principles of REST (Representational State Transfer).
 - Server-Side Frameworks:
@@ -112,3 +121,20 @@ Javascript Object notation ( jSON )
   - The process of verifying the identity of a user or system.
 - Authorization:
   - The process of determining whether a user or system has permission to access a particular resource or perform a specific action.
+- SSR
+  - Rendering of the full HTML content on the server before sending it to the browser.
+    - Client requests a page.
+    - Server runs JavaScript, generates HTML.
+    - HTML is sent to browser.
+    - Browser displays the page.
+    - Example
+      - Express + EJS/Pug
+      - Nextjs
+      - PHP, Django
+- CSR
+- HTML is minimal; JavaScript fetches and renders content in the browser after loading.
+  - Server sends basic HTML + JS.
+  - Browser loads JS and fetches data via API.
+  - JS builds the UI dynamically.
+  - example
+    - React, Angular, Vue (with Vite/Webpack)

@@ -1,4 +1,3 @@
-
 # INTRO
 
 Javascript
@@ -9,8 +8,7 @@ Javascript
 - Asynchronous codes like promises and Async await codes will goes to MICRO TASK QUEUE.
 - **EVENT LOOP** will check for TASK QUEUE or MICRO TASK QUEUE only if CALL STACK empty.
 - MICRO TASK QUEUE has more priority than TASK QUEUE.
-- **web workers**
-  Web Workers are a simple means for web content to run scripts in background threads. The worker thread can perform tasks without interfering with the user interface.
+- [youtube ref](https://www.youtube.com/watch?v=eiC58R16hb8)
 - v8 javascript engine
   CHROME JS ENGINE
 
@@ -20,11 +18,11 @@ NODE JS
 - npm and package.json
   Node package manager used to manage packages.
 - package versioning
- eg: 2.3.12
-  - major  2
-  - minor  3
-  - patch  12
-- package updating symbols: ~ ^ *
+  eg: 2.3.12
+  - major 2
+  - minor 3
+  - patch 12
+- package updating symbols: ~ ^ \*
 - blocking and non blocking code
   - synchronous or blocking
   - asynchronous or non-blocking
@@ -35,9 +33,8 @@ NODE JS
     - `module.exports = sample;`
     - `module.exports = { sample1, sample2 }`
 - Together, `require()` and `module.exports` form the foundation of the CommonJS module system, which is the standard module format used in Node.js.
-- client server architecture `vs` peer to peer architecture
 
-# Types of api
+## types of api
 
 - SOAP (Simple Object Access Protocol):
   - SOAP is like sending a letter.
@@ -47,7 +44,7 @@ NODE JS
   - SOAP is an older technology.
 - REST API :
   - REST : Representational State Transfer
-  - API  : Application programming interface
+  - API : Application programming interface
   - With REST, information can be represented and transferred in different forms,
   - **application**:
     - get movies details using API.
@@ -61,6 +58,3 @@ NODE JS
   - **application**:
     - video Conferencing
     - google meet
-
-
-
