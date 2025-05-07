@@ -100,8 +100,8 @@ function ParentComp() {
     const [stop, setStop] = useState(false);
     const [count, setCount] = useState(10);
     // I have used useRef because for below reasons.
-    // 1️⃣ my `interval` variable should be affected by re-rendering
-    // 2️⃣ If I change any value in `interval`. I should reload the component. 
+    // 1️⃣ my `interval` variable should not be affected by re-rendering
+    // 2️⃣ If I change any value in `interval`. I should not reload the component. 
     const intervalRef = useRef();
 
     useEffect(() => {
