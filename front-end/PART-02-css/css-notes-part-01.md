@@ -35,11 +35,11 @@ p { /* here `p` is selector */
 - Class      `.box`
 - Id   `#id-example`
 - Attribute - eg: `div[name="username"]`
-- combinator
-- descendant
-- child
-- next sibling
-- subsequent-sibling
+- combinator 
+   - descendant - `space`
+   - child - `>`
+   - adjacent - `+`
+   - general  - `~`
 - nesting
 
 - pseudo-class
