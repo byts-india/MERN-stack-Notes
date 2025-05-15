@@ -229,12 +229,13 @@ eg: `width: calc(100vw - 200px)`
 - justify-content
 - align-items
 - align-content
+- gap: 1
 
 # flex-items
 
 - order : 0
 - flex : 1    ( flex-[grow, shrink, basis])
-- gap: 1
+
 ```
 
 - grid
