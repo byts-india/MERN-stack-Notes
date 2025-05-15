@@ -139,6 +139,14 @@ header {
 - overflow
 - text-overflow
 
+```css
+.overflow {
+       overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+```
+
 ## font
 
 - font-size
