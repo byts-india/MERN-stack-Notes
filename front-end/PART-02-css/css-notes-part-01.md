@@ -90,13 +90,12 @@ p { /* here `p` is selector */
 - positioning
   - static
     - default value
-  - absolute
-    - position based on screen
-    - move when scrolling
   - fixed
     - position based on screen
     - won't move when scrolling
-
+  - absolute
+    - position based on screen
+    - move when scrolling
   - relative
     - position based on its current position and relative to its parent.
     - eg: if top : 20px;
