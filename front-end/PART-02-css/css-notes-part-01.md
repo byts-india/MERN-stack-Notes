@@ -213,6 +213,27 @@ eg: `width: calc(100vw - 200px)`
 ### RWD
 
 - @media
+
+```markdown
+# syntax
+```css
+@media (condition) {
+  /* styles go here */
+}
+```
+
+Common Use — Responsive Design
+
+```css
+// Applies styles only when the screen width is 768px or less (usually tablets/mobiles).
+@media (max-width: 768px) {
+  body {
+    background-color: lightblue;
+  }
+}
+```
+```
+
 - flex
 
 ```markdown
