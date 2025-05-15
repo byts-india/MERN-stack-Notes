@@ -240,6 +240,10 @@ eg: `width: calc(100vw - 200px)`
 
 - grid
 
+```markdown
+# search for "css generator"
+```
+
 ### icon
 
 link:favicon
