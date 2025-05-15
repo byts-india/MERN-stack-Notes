@@ -214,6 +214,29 @@ eg: `width: calc(100vw - 200px)`
 
 - @media
 - flex
+
+```markdown
+# flex :
+- parent   : flex-container
+- children : flex-items
+
+# flex-container
+
+	display: flex;
+
+- flex-direction:
+- flex-wrap
+- justify-content
+- align-items
+- align-content
+
+# flex-items
+
+- order : 0
+- flex : 1    ( flex-[grow, shrink, basis])
+- gap: 1
+```
+
 - grid
 
 ### icon
