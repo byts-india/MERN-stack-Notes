@@ -206,7 +206,7 @@ eg: `width: calc(100vw - 200px)`
 ### colors units
 
 - rgba `rgba(255,255,255,0.5)`
-- rgba `rgba(255,255,255)`
+- rgba `rgb(255,255,255)`
 - hexa code `#fffff`
 - color keycodes `orange`
 
