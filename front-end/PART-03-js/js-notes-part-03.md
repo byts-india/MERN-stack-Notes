@@ -3,7 +3,7 @@
 ## map / filter / reduce / for each `table`
 
 
-|  |fn returns  |   callback arg | callback return type |
+|  |fn returns  |   callback params | callback return type |
 |---------|---------|---------|----------|
 |map        | arr of same len     |val,idx,arr| any type |
 |filter     | arr of same or less len  |val,idx,arr| boolean type |

@@ -35,11 +35,11 @@ p { /* here `p` is selector */
 - Class      `.box`
 - Id   `#id-example`
 - Attribute - eg: `div[name="username"]`
-- combinator
-- descendant
-- child
-- next sibling
-- subsequent-sibling
+- combinator 
+   - descendant - `space`
+   - child - `>`
+   - adjacent - `+`
+   - general  - `~`
 - nesting
 
 - pseudo-class
@@ -90,13 +90,12 @@ p { /* here `p` is selector */
 - positioning
   - static
     - default value
-  - absolute
-    - position based on screen
-    - move when scrolling
   - fixed
     - position based on screen
     - won't move when scrolling
-
+  - absolute
+    - position based on screen
+    - move when scrolling
   - relative
     - position based on its current position and relative to its parent.
     - eg: if top : 20px;
@@ -139,6 +138,14 @@ header {
 - text-indent
 - overflow
 - text-overflow
+
+```css
+.overflow {
+       overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+```
 
 ## font
 
@@ -199,15 +206,61 @@ eg: `width: calc(100vw - 200px)`
 ### colors units
 
 - rgba `rgba(255,255,255,0.5)`
-- rgba `rgba(255,255,255)`
+- rgba `rgb(255,255,255)`
 - hexa code `#fffff`
 - color keycodes `orange`
 
 ### RWD
 
 - @media
+
+```markdown
+# syntax
+	@media (condition) {
+	  /* styles go here */
+	}
+
+Common Use — Responsive Design
+
+	// Applies styles only when the screen width is 768px or less (usually tablets/mobiles).
+	@media (max-width: 768px) {
+	  body {
+	    background-color: lightblue;
+	  }
+	}
+
+```
+
 - flex
+
+```markdown
+# flex :
+- parent   : flex-container
+- children : flex-items
+
+# flex-container
+
+	display: flex;
+
+- flex-direction:
+- flex-wrap
+- justify-content
+- align-items
+- align-content
+- gap: 1
+
+# flex-items
+
+- order : 0
+- flex : 1    ( flex-[grow, shrink, basis])
+
+```
+
 - grid
+
+```markdown
+# search for "css generator"
+```
 
 ### icon
 
