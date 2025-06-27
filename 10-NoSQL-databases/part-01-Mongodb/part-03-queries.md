@@ -1,0 +1,61 @@
+# createDB
+
+- show dbs
+- use blog
+-collections
+- db.createCollection("posts")
+- db.posts.insertOne(object)
+-insert
+- insertOne
+- insertMany
+-Find
+- find
+- findOne
+-Update
+- updateOne({title: 'post'},{$set:{likes: 2}})
+  - upsert: true
+  - updateMany({}, { $inc: { likes: 1 }})
+-Delete
+- db.posts.deleteOne({ title: "post Title 5" })
+- deleteOne()
+- deleteMany()p
+-Query Operators
+- comparison
+  - $eq
+  - $ne
+  - $gt
+  - $gte
+  - $lt
+  - $lte
+  - $in
+- Logical
+  - $and
+  - $or
+  - $nor
+  - $not
+- Evaluation
+  - $regex
+  - $text
+  - $where
+-update operators
+- fields
+  - $currentDate
+  - $inc
+  - $rename
+  - $set
+  - $unset
+- Array
+  - $addToSet
+  - $pop
+  - $pull
+  - $push
+-Aggregation pipelines
+- match
+- group
+- limit
+- porject
+- sort
+- addFields
+- count
+- lookup
+- out
