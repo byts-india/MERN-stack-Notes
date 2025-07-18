@@ -17,38 +17,35 @@ const MemoizedComp = memo(ExistingComponent);
 
 ```jsx
 import { memo, useMemo, useState } from "react";
-import "./App.css";
+import './App.css';
 
 // MEMO EXAMPLE
-function What() {
+function ChildComponent() {
   const [value, setValue] = useState(0);
-  console.log("what is rendering");
+  console.log("ChildComponent is rendering");
   return (
     <h1 className="bg-yellow-200 text-black rounded-sm px-5">
-      <span onClick={() => setValue(value + 1)}>inside component {value}</span>
+      <span onClick={() => setValue(value + 1)}>
+        inside component {value}
+      </span>
     </h1>
   );
 }
 
-const MemoizedComponent = memo(What);
+const MemoizedComponent = memo(ChildComponent);
 
 export default function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="w-screen h-screen flex justify-center align-middle items-center">
-      <div className="h-1/2 w-1/2 bg-black text-white p-5 font-medium">
+    <div className='w-screen h-screen flex justify-center align-middle items-center'>
+      <div className='h-1/2 w-1/2 bg-black text-white p-5 font-medium'>
         <h1>hello world</h1>
-        <button
-          className="bg-blue-300 rounded-sm px-2 text-red"
-          onClick={() => setCount(count + 1)}
-        >
-          {" "}
-          click me : {count}
-        </button>
-        <MemoizedComponent />
+        <button className="bg-blue-300 rounded-sm px-2 text-red" onClick={() => setCount(count + 1)}> click me : {count}</button>
+        {/* <ChildComponent /> */}
+        <MemoizedComponent/>
       </div>
     </div>
-  );
+  )
 }
 ```
