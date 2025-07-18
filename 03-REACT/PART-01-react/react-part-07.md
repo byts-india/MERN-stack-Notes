@@ -173,3 +173,78 @@ export default function App() {
   );
 }
 ```
+
+## `lazy loading...`
+
+- By default after all components in import
+  statement are loaded. Then you will see the
+  output in the screen.
+- consider a scenario where a HeavyComponent
+  which take 10 seconds to loaded the component.
+- In that case, untill 10 seconds. you will see
+  a blank page, with no content.
+- To solve this we use lazy-loading in react.
+
+### syntax for lazy loading
+
+- without : `import HeavyComp from '...'`;
+- with : `const HeavyComp = lazy(() => import('...'))`
+  When using lazyloading make sure to use `<Suspense>`
+  So that we will display a fallback message that
+  says, component is still in loading progress.
+
+```jsx
+// HeavyComponent.jsx
+// HeavyComponent.jsx
+
+// Simulate heavy CPU load or network delay
+const simulateHeavyCalculation = () => {
+  const start = Date.now();
+  while (Date.now() - start < 10000) {
+    // Blocking the thread for 10 seconds
+  }
+};
+
+export default function HeavyComponent() {
+  simulateHeavyCalculation(); // Heavy load happens here
+  return (
+    <div
+      style={{ marginTop: "20px", padding: "10px", border: "2px solid green" }}
+    >
+      <h2>This is a HEAVY Component 🚀</h2>
+      <p>Loaded after 3 seconds of fake heavy calculation.</p>
+    </div>
+  );
+}
+```
+
+```jsx
+// App.jsx
+// SUSPENSE EXAMPLE
+import { lazy, Suspense, useState } from "react";
+// import HeavyComponent from "./HeavyComponent";
+const HeavyComponent = lazy(() => import("./HeavyComponent"));
+
+export default function App() {
+  const [showHeavy, setShowHeavy] = useState(true);
+
+  return (
+    <div>
+      <h1>Dashboard</h1>
+
+      <button
+        className="bg-black text-red-300"
+        onClick={() => setShowHeavy(!showHeavy)}
+      >
+        Load Heavy Component
+      </button>
+
+      {showHeavy && (
+        <Suspense fallback={<p>Loading component...</p>}>
+          <HeavyComponent />
+        </Suspense>
+      )}
+    </div>
+  );
+}
+```
