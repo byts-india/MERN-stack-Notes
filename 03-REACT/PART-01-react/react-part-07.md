@@ -67,3 +67,39 @@ export default function App() {
 const memoizedValue = useMemo(funcRef,[deps]);
 -> useMemo will return memoized result
 of a function.
+
+```jsx
+import { useMemo, useState } from 'react';
+import './App.css';
+// USE MEMO EXAMPLE
+export default function App() {
+  const [count, setCount] = useState(0);
+  const [value, setValue] = useState(1);
+
+  function handleUpdate() {
+    if(count%10 == 0) {
+       setValue(value + 1);
+    }
+    setCount(count + 1);
+  }
+
+  const expensiveEvenSumValue = useMemo(() => {
+    console.log("👹 Calculating sum of heavy calc...");
+    let sum = (value * 10);
+    return sum;
+  },[value]);
+
+  return (
+    <div style={{ padding: "20px" }}>
+      
+      <p>The sum: {expensiveEvenSumValue}</p>
+
+      <button className="bg-black rounded-sm px-2 text-yellow-50" onClick={handleUpdate}>
+        counter ({count})
+      </button>
+
+      
+    </div>
+  );
+}
+```
