@@ -69,36 +69,106 @@ const memoizedValue = useMemo(funcRef,[deps]);
 of a function.
 
 ```jsx
-import { useMemo, useState } from 'react';
-import './App.css';
+import { useMemo, useState } from "react";
+import "./App.css";
 // USE MEMO EXAMPLE
 export default function App() {
   const [count, setCount] = useState(0);
   const [value, setValue] = useState(1);
 
   function handleUpdate() {
-    if(count%10 == 0) {
-       setValue(value + 1);
+    if (count % 10 == 0) {
+      setValue(value + 1);
     }
     setCount(count + 1);
   }
 
   const expensiveEvenSumValue = useMemo(() => {
     console.log("👹 Calculating sum of heavy calc...");
-    let sum = (value * 10);
+    let sum = value * 10;
     return sum;
-  },[value]);
+  }, [value]);
 
   return (
     <div style={{ padding: "20px" }}>
-      
       <p>The sum: {expensiveEvenSumValue}</p>
 
-      <button className="bg-black rounded-sm px-2 text-yellow-50" onClick={handleUpdate}>
+      <button
+        className="bg-black rounded-sm px-2 text-yellow-50"
+        onClick={handleUpdate}
+      >
         counter ({count})
       </button>
+    </div>
+  );
+}
+```
 
-      
+## `2. useCallback`
+
+- it is hook,
+- should be used inside the component.
+- when to use ?
+
+### syntax
+
+const result = useCallback(fn,[deps]);
+
+### Usage
+
+- When you pass a func to ChildrenComponent as props.
+- On each and every Parent component re-renders. func which you are passing as props will re-define, hence new func reference will be created.
+- Your Memoized Child components think that,
+  the func props is changed. To avoid this
+  We use useCallback();
+
+### conclusion.
+
+- When you don't want to redefine a function inside a component, until a dependency changes. Use useCallback hook.
+
+```jsx
+import { memo, useCallback, useState } from "react";
+import "./App.css";
+
+// USE CALL BACK EXAMPLE
+function ChildComponent({ handleClick, value }) {
+  console.log("child component rerendering...");
+  return (
+    <div>
+      <p>
+        value is :
+        <span onClick={handleClick} className="bg-black text-red-300">
+          {value}{" "}
+        </span>
+      </p>
+    </div>
+  );
+}
+const MemoizedComp = memo(ChildComponent);
+
+export default function App() {
+  const [count, setCount] = useState(0);
+  const [value, setValue] = useState(1);
+
+  function handleCounterClick() {
+    if ((count + 1) % 10 == 0) {
+      setValue(value + 1);
+    }
+    setCount(count + 1);
+  }
+
+  const handleValueClick = useCallback(() => {
+    setValue(value + 10);
+  }, [value]);
+
+  return (
+    <div style={{ padding: "20px" }}>
+      <button className="bg-red-500 text-white" onClick={handleCounterClick}>
+        counter {count}
+      </button>
+      <br />
+      <hr />
+      <MemoizedComp value={value} handleClick={handleValueClick} />
     </div>
   );
 }
