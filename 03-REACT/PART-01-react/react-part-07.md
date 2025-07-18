@@ -248,3 +248,13 @@ export default function App() {
   );
 }
 ```
+
+## `CONCLUSION`
+
+            memo         ->  memoize a component
+            useMemo      ->  (heavy func calc) inside component
+            useCallback  ->  memoize a (func def) which is passed as props to child component.
+
+            lazy()       -> When a HeavyComponent slows your entire output.
+            <Suspense/>  -> When using lazy() , You want to show a fall back message.
+
