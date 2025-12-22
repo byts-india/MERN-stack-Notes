@@ -27,7 +27,9 @@ CREATE TABLE marks (
 	stu_id      INT,
 	dept_id     INT,
 	sub_id      INT,
-	marks 		INT
+	marks 		INT,
+	FOREIGN KEY (stu_id) REFERENCES student(roll_no),
+	FOREIGN KEY (dept_id) REFERENCES department(id)
 );
 
 SHOW TABLES;
@@ -81,3 +83,15 @@ ALTER TABLE sample
 RENAME COLUMN id TO sno;
 
 UPDATE sample SET age = 19;
+
+
+ALTER TABLE marks 
+ADD CONSTRAINT 
+FOREIGN KEY (dept_id) 
+REFERENCES department(id);
+
+ALTER TABLE marks
+ADD CONSTRAINT 
+PRIMARY KEY (stu_id, dept_id, sub_id);
+-- Here in above code,
+-- combining three columns to form primary key.
