@@ -266,3 +266,9 @@ After BCNF, instructor details are stored only once, and students are linked usi
 | --------- | ---- | ---- |
 | 121csr123 | ram  | d1   |
 | 121ece124 | raju | d2   |
+
+## Questions
+
+- get dept wise marks
+- get subject wise marks
+- get student wise avg marks
