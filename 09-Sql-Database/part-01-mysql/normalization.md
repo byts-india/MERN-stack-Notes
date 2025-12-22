@@ -25,16 +25,16 @@ Goal:
 2. No multi-valued attributes
 3. Each record can be uniquely identified
 
-| student_id | name | phone                  |
-| ---------- | ---- | ---------------------- |
-| 1          | revi | 9876212311, 1111122222 |
+| student_id | name | phone                        |
+| ---------- | ---- | ---------------------------- |
+| 1          | revi | 98762121csr12311, 1111122222 |
 
 -> convert to 1nf
 
-| student_id | name | phone      |
-| ---------- | ---- | ---------- |
-| 1          | revi | 9876212311 |
-| 1          | revi | 1111122222 |
+| student_id | name | phone            |
+| ---------- | ---- | ---------------- |
+| 1          | revi | 98762121csr12311 |
+| 1          | revi | 1111122222       |
 
 ## 2NF
 
@@ -125,8 +125,8 @@ Goal:
 
 From real-world rules:
 
-1. A student can take many courses
-1. Each course is handled by only one instructor
+1. A student can take many courses.
+1. Each course is handled by only one instructor.
 
 So the functional dependencies are:
 
@@ -167,3 +167,102 @@ split into 2 tables:
 
 Earlier, instructor name was repeating for each student.
 After BCNF, instructor details are stored only once, and students are linked using course.
+
+---
+
+## BEST EXAMPLE to convert from ( 1nf to 3nf )
+
+- `1nf` : `no multi values cells`
+  - eg: marks, subjects
+- `2nf` : `no partial deps`
+  - eg: ( roll_no + subject ) -> marks
+  - ( primary key ) <= ( col1 + col2 ) [ composite key ].
+- `3nf` : `no transitive deps`
+  - A -> B -> C, where `A` is primary key, `B` and `C` is non-key attribute
+  - stu_id -> sub -> marks
+  - where `sub` and `marks` is not primary key
+
+| roll_no   | name | dept | subject      | marks    |
+| --------- | ---- | ---- | ------------ | -------- |
+| 121csr123 | ram  | cse  | dbms,os,java | 80,75,40 |
+| 121ece124 | raju | ece  | c,os,java    | 80,75,40 |
+
+## 1nf
+
+| roll_no   | name | dept | subject       | marks |
+| --------- | ---- | ---- | ------------- | ----- |
+| 121csr123 | ram  | cse  | dbms          | 80    |
+| 121csr123 | ram  | cse  | os            | 75    |
+| 121csr123 | ram  | cse  | java          | 40    |
+| 121ece124 | raju | ece  | communication | 80    |
+| 121ece124 | raju | ece  | circuits      | 75    |
+| 121ece124 | raju | ece  | embedded      | 40    |
+
+# 2nf
+
+- in above table
+- partial dependency there.
+- eg: student details are repeated.
+- so marks details we kept in separate table.
+
+- student table
+
+| roll_no   | name | course |
+| --------- | ---- | ------ |
+| 121csr123 | ram  | cse    |
+| 121ece124 | raju | ece    |
+
+- marks table
+
+| stu_id    | sub           | marks |
+| --------- | ------------- | ----- |
+| 121csr123 | dbms          | 80    |
+| 121csr123 | os            | 75    |
+| 121csr123 | java          | 40    |
+| 121ece124 | communication | 80    |
+| 121ece124 | circuits      | 75    |
+| 121ece124 | embedded      | 40    |
+
+# 3nf
+
+- per table -> one primary key.
+- transitive dependency: non_key_attrib depends on non_key_attrib to unique identify a row.
+
+- further splitting marks table as
+- ( dept, subject, marks )
+
+- dept table
+
+| dept_id | dept_name |
+| ------- | --------- |
+| d1      | cse       |
+| d2      | ece       |
+
+- subject table
+
+| subject_id | dept_id | sub_name      |
+| ---------- | ------- | ------------- |
+| s1         | d1      | dbms          |
+| s2         | d1      | os            |
+| s3         | d1      | java          |
+| s4         | d2      | communication |
+| s5         | d2      | circuits      |
+| s6         | d2      | embedded      |
+
+- marks
+
+| sno | stu_id    | dept_id | sub_id | marks |
+| --- | --------- | ------- | ------ | ----- |
+| 1   | 121csr123 | d1      | s1     | 80    |
+| 2   | 121csr123 | d1      | s2     | 75    |
+| 3   | 121csr123 | d1      | s3     | 40    |
+| 4   | 121ece124 | d2      | s4     | 80    |
+| 5   | 121ece124 | d2      | s5     | 75    |
+| 6   | 121ece124 | d2      | s6     | 40    |
+
+- student table
+
+| roll_no   | name | dept |
+| --------- | ---- | ---- |
+| 121csr123 | ram  | d1   |
+| 121ece124 | raju | d2   |
