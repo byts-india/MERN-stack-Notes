@@ -68,7 +68,6 @@
 - LEFT JOIN
 - RIGHT JOIN
 - CROSS JOIN
-- SELF JOIN
 
 ## Join concepts
 
@@ -154,7 +153,6 @@
 ## SOME FAMOUS QUIZ
 
 - SQL vs MySQL
-- IN vs EXISTS
 - GROUP BY vs ORDER BY
 - WHERE vs HAVING
 - DELETE vs TRUNCATE

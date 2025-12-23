@@ -95,3 +95,57 @@ ADD CONSTRAINT
 PRIMARY KEY (stu_id, dept_id, sub_id);
 -- Here in above code,
 -- combining three columns to form primary key.
+
+
+--  below are taken in batch 02
+
+-- single line comment
+/*
+multi
+line 
+comment
+*/
+
+SHOW DATABASES;
+CREATE DATABASE temp_db;
+USE temp_db;
+DROP DATABASE temp_db;
+
+SHOW TABLES;
+DESCRIBE table_name;
+SELECT * FROM customers;
+SELECT first_name, age FROM customers;
+
+CREATE TABLE student (
+   id  		INT  			PRIMARY KEY, 
+   name 	VARCHAR(50) 	NOT NULL,
+   dept     VARCHAR(30)
+);
+
+INSERT INTO student VALUES 
+(1, 'jackie', 'jackie@yahoo.com', 29, 'CSE'),
+(2, 'julie','julie@gmail.com', 19, 'ECE');
+
+SELECT * from student;
+
+INSERT INTO student (id, name) VALUES
+(3,'nobita'),
+(4,'shin chan');
+
+UPDATE student SET age = 20 WHERE age IS NULL; 
+UPDATE student SET email = 'nobita@gmail.com' WHERE id = 3;
+UPDATE student SET email = 'chan@gmail.com' WHERE id = 4;
+
+DELETE FROM student WHERE dept IS NULL;
+TRUNCATE student;  /* reset with empty values in table */
+
+RENAME TABLE student TO marks;
+
+ALTER TABLE student 
+ADD COLUMN cgpa FLOAT DEFAULT 0;
+
+ALTER TABLE student
+RENAME COLUMN cgpa TO gpa;
+
+ALTER TABLE student
+DROP COLUMN age;
