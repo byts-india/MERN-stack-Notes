@@ -68,7 +68,6 @@
 - LEFT JOIN
 - RIGHT JOIN
 - CROSS JOIN
-- SELF JOIN
 
 ## Join concepts
 
