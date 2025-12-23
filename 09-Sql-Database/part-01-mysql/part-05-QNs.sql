@@ -1,6 +1,5 @@
 -- questions 
 
-
 CREATE TABLE dept (
     id  INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(100) NOT NULL
@@ -15,13 +14,15 @@ CREATE TABLE student (
 );
 
 /*
+Below is another way to add foreign key after creation of table
+
 ALTER TABLE student 
 ADD CONSTRAINT 
 FOREIGN KEY (dept_id) REFERENCES dept(id);
 */
 
 
-
+-- insert only dept names.
 INSERT INTO dept (name) VALUES 
 ('CSE'),
 ('ECE'),
@@ -39,10 +40,10 @@ INSERT INTO student (roll_no, email, name, dept_id ) VALUES
  ( 43 , 'ben@gmail.com','ben tenison', 3 );
 
 -- count no of students in each dept
-
 SELECT dept_id, count(dept_id) as count 
 FROM student GROUP BY dept_id;
 
+-- get dept wise count
 SELECT 
     d.name AS dept_name, 
     count(s.dept_id) as count 
@@ -53,11 +54,13 @@ LEFT JOIN
 ON s.dept_id = d.id 
 GROUP BY s.dept_id;
 
+-- set email to null where roll_no is 36 or 43.
 UPDATE student SET email = NULL 
 WHERE roll_no IN (36, 43);
 
 SELECT * FROM student WHERE email IS NOT NULL;
 
+-- In output if email is null, display alter text 'not available'
 SELECT name, IFNULL(email,"Not available") FROM student;
 
 /* --------------------------------------------------  */
@@ -93,19 +96,22 @@ VALUES
     (120, 'VR Headset', 'Electronics', 400.00, 50),
     (121, 'Gaming Console', 'Electronics', 450.00, 80);
 
-
+-- get sum of all unitPrice based on category
 SELECT Category, sum(UnitPrice) FROM products
 group by category;
 
 SELECT * FROM products limit 5 offset 10;
 
+-- get based on some conditions
 SELECT ProductName, UnitPrice FROM products
 WHERE UnitPrice <= 100;
 
+-- usage of OR NOT, ORDER BY for sorting.
 SELECT ProductName, UnitPrice, StockQuantity FROM products
 WHERE UnitPrice <= 100 OR (NOT StockQuantity > 200)
 ORDER BY UnitPrice DESC;
 
+-- LIMIT for get top values
 SELECT ProductName, UnitPrice FROM products
 ORDER BY UnitPrice DESC limit 5;
 
@@ -141,25 +147,29 @@ VALUES
     (5, 'English', 93),
     (5, 'History', 84);
 
-
-SELECT subjectname, avg(mark) 
+-- get subject wise avg mark, and where avg_mark > 80;
+SELECT subjectName, avg(mark) 
 FROM marks
 GROUP BY subjectName
 HAVING avg(mark) > 80;
 
+-- get marks between 80 and 90
 SELECT * FROM marks
 WHERE mark BETWEEN 80 AND 90
 ORDER BY mark;
 
 SELECT * FROM marks
+-- get subject name starts with letter 's'
 WHERE subjectName LIKE 's%';
 
+-- find student with max mark
 select studentid, max(mark) from marks;
-
+-- find avg of all marks
 select avg(mark) from marks;
 
 -- SUB QUERY
 
+-- GET student and mark whose mark is more than average.
 SELECT 
     studentid, 
     mark 
@@ -167,3 +177,5 @@ FROM marks
 WHERE
 mark > ( select avg(mark) from marks );
 
+-- GET TOP 5 student scored high marks;
+select * from marks order by mark desc limit 5;
