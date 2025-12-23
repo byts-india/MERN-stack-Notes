@@ -142,6 +142,11 @@ VALUES
     (5, 'History', 84);
 
 
+SELECT subjectname, avg(mark) 
+FROM marks
+GROUP BY subjectName
+HAVING avg(mark) > 80;
+
 SELECT * FROM marks
 WHERE mark BETWEEN 80 AND 90
 ORDER BY mark;
