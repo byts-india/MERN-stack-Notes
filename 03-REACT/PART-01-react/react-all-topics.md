@@ -11,7 +11,7 @@
 1. hooks
     1. useState
     1. useEffect
-1. using UI react-framework ( React-Material UI )
+1. react-router-dom
 
 ## intermediate
 
@@ -20,7 +20,6 @@
     1. useReducer
     1. useRef
     1. useId
-    1. React-router-dom ( library )
 
 ## advance
 
