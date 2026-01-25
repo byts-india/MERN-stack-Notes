@@ -245,29 +245,23 @@ WHERE o.id IS NULL;
 
 
 -- 21. Find top 3 highest scoring students
-
 SELECT * FROM students
 ORDER BY marks DESC
 LIMIT 3;
 
 -- 22. Update all students marks by +5
-
 UPDATE students SET marks = marks + 5;
 
 -- 23. Find students whose name starts with 'A'
-
 SELECT * FROM students WHERE name LIKE 'A%';
 
 -- 24. Find students whose name contains 'an'
-
 SELECT * FROM students WHERE name LIKE '%an%';
 
 -- 25. Find students btw marks 60 and 80
-
 SELECT * FROM students WHERE marks BETWEEN 60 AND 80;
 
 -- 26. Find count of students per year.
-
 SELECT 
     YEAR(created_at) AS year,
     COUNT(*)         AS count
@@ -275,7 +269,6 @@ FROM students
 GROUP BY YEAR(created_at);
 
 -- 27. Find students who scored same marks
-
 SELECT
  marks,
  count(*)
@@ -284,13 +277,49 @@ GROUP BY marks
 HAVING COUNT(*) > 1;
 
 -- 28. Fetch last inserted student
-
 SELECT * FROM students ORDER BY created_at DESC LIMIT 1; 
 
--- 29. Create index on student name
 
+-- 29. Create index on student name
 CREATE INDEX idx_student ON students(name);
 
 -- 30. Remove all records but keep table
-
 TRUNCATE TABLE students;
+
+-- 31. Find duplicates marks students name list;
+
+SELECT name, marks
+FROM students
+WHERE marks IN (SELECT 
+        marks
+    FROM students 
+    GROUP BY marks 
+    HAVING COUNT(*) > 1)
+ORDER BY marks DESC;
+
+-- 32. Find employe with same salary;
+
+SELECT salary, COUNT(*)
+FROM employees
+GROUP BY salary
+HAVING COUNT(*) > 1;
+
+-- 33 Fetch first 5 records
+
+SELECT * FROM students LIMIT 5;
+
+-- 34 Fetch 5 records after skipping first 5
+
+SELECT * FROM students LIMIT 5 OFFSET 5;
+
+-- 35 Find departments without students
+
+SELECT
+    * 
+FROM departments
+WHERE id NOT IN 
+( SELECT 
+    DISTINCT dept_id 
+  FROM students 
+  WHERE dept_id IS NOT NULL 
+);
