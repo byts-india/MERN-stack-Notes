@@ -82,3 +82,78 @@ SELECT * FROM orders;
 
 SELECT * FROM students
 WHERE marks > (SELECT AVG(marks) FROM students);
+
+-- 2. Get department wise student count.
+
+SELECT dept_id, count(*) FROM students
+GROUP BY dept_id;
+
+
+-- 3.  Find departments with more than or equal 5 students
+
+SELECT dept_id FROM students
+GROUP BY dept_id
+HAVING COUNT(*) >= 5;
+
+-- 4.  Fetch student name along with department name.
+
+SELECT
+    s.name,
+    d.dept_name
+FROM students as s 
+LEFT JOIN departments as d 
+ON d.id = s.dept_id;
+
+-- 5. Find students who don't belong to any department.
+
+UPDATE students SET dept_id = NULL
+    WHERE id IN (3,6,10);
+
+-- NULL sometimes won't with '=' | alternate IS NULL
+SELECT name FROM students WHERE dept_id = NULL;
+SELECT name FROM students WHERE dept_id IS NULL;
+
+-- 6. Get highest marks in each department.
+SELECT 
+    dept_id, 
+    max(marks) AS highest_mark 
+FROM students
+WHERE dept_id IS NOT NULL
+GROUP BY dept_id;
+
+SELECT 
+    d.dept_name, 
+    max(s.marks) AS highest_mark 
+FROM students AS s
+LEFT JOIN departments AS d 
+ON d.id = s.dept_id
+WHERE s.dept_id IS NOT NULL
+GROUP BY s.dept_id;
+
+-- 7. Find students who joined today.
+
+SELECT * FROM students
+WHERE DATE(created_at) = CURDATE();
+
+-- 8. Find duplicate student names.
+
+SELECT name, COUNT(*)
+FROM students
+GROUP BY name 
+HAVING COUNT(*) > 1;
+
+-- 9. Delete duplicate students ( keep lowest id )
+
+DELETE s1 
+FROM students s1
+JOIN students s2
+ON s1.name = s2.name AND s1.id > s2.id;
+
+-- 10. Find second highest marks
+
+SELECT 
+    *
+FROM students
+ORDER BY marks DESC
+LIMIT 1
+OFFSET 1;
