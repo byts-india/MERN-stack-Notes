@@ -16,88 +16,230 @@ DELETE FROM student WHERE id > 0;
 
 4 tables
 
-> students
+## LIST OF COMMANDS TYPES
 
-CREATE DATABASE test_db;
-USE test_db;
-
-
--- 1. Create Departments (Must be first due to foreign key in students)
-
-CREATE TABLE departments (
-    id          INT PRIMARY KEY,
-    dept_name   VARCHAR(30)
-);
-
--- 2. Create Students
-CREATE TABLE students (
-    id          INT PRIMARY KEY AUTO_INCREMENT,
-    name        VARCHAR(40) NOT NULL,
-    dept_id     INT,
-    marks       INT,
-    created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (dept_id) REFERENCES departments(id)
-);
-
--- 3. Create Employees
-CREATE TABLE employees (
-    id           INT PRIMARY KEY AUTO_INCREMENT,
-    name         VARCHAR(50),
-    manager_id   INT, -- Self-referencing hierarchy usually
-    salary       FLOAT,
-    joining_date DATETIME
-);
-
--- 4. Create Orders
-CREATE TABLE orders (
-    id           INT PRIMARY KEY AUTO_INCREMENT,
-    customer_id  INT,
-    amount       FLOAT,
-    order_date   DATETIME
-);
+- DDL
+- DML
+- DCL
+- TCL
 
 
+## DDL Data definition lang
 
--- Insert into Departments
-INSERT INTO departments (id, dept_name) VALUES 
-(1, 'Computer Science'),
-(2, 'Mathematics'),
-(3, 'Physics'),
-(4, 'Literature');
+- DDL commands are used to define, modify and delete database
+  structures such as databases, table, indexes, view etc.
+- These commands change schema and are usually auto-commit
+  in mysql.
 
--- Insert into Students
--- Note: dept_id must match an id from the departments table
-INSERT INTO students (name, dept_id, marks) VALUES 
-('Alice Johnson', 1, 88),
-('Bob Smith', 1, 75),
-('Charlie Brown', 2, 92),
-('Diana Prince', 3, 81),
-('Evan Wright', 2, 65);
+### USAGE
+    - creating database objects
+    - modifying structures
+    - removing objects
 
--- Insert into Employees
--- We insert a "Manager" first, then employees who report to them
-INSERT INTO employees (name, manager_id, salary, joining_date) VALUES 
-('Sarah Connor', NULL, 95000.00, '2020-01-15 09:00:00'), -- The Boss (ID 1)
-('Kyle Reese', 1, 65000.00, '2021-03-10 09:00:00'),      -- Reports to ID 1
-('John Doe', 1, 62000.00, '2021-04-22 09:30:00'),        -- Reports to ID 1
-('Jane Smith', 2, 48000.00, '2023-06-01 10:00:00');      -- Reports to ID 2
+>>> DDL commands are auto-comit ( YES )
+>>> Changes cannot be rolled back
 
--- Insert into Orders
-INSERT INTO orders (customer_id, amount, order_date) VALUES 
-(101, 150.50, '2023-10-01 14:30:00'),
-(102, 299.99, '2023-10-02 10:15:00'),
-(101, 45.00,  '2023-10-03 09:45:00'),
-(103, 1200.00, '2023-10-05 16:20:00');
+### DDL COMMANDS
+1. CREATE
+    - `CREATE DATABASE college;`
+    - `CREATE DATABASE IF NOT EXISTS college;`
+    - `CREATE TABLE IF NOT EXISTS student ( id INT PRIMARY KEY AUTO_INCREMENT, age INT ); `
+    - create table from another table.
+     - ` CREATE TABLE student_backup AS SELECT * FROM students;`
+     - constraints are not copied.
+2. ALTER
+    - Used to modify table structures
+
+```sql
+-- ADD COLUMNS
+ALTER TABLE students ADD address VARCHAR(40);
+
+ALTER TABLE students
+ADD city VARCHAR(50) NOT NULL,
+ADD email VARCHAR(100) UNIQUE,
+ADD pincode INT DEFAULT 0;
+
+-- MODIFY COLUMNS
+
+ALTER TABLE students MODIFY name VARCHAR(100);
+
+-- CHANGE COLUMN NAME
+
+ALTER TABLE students CHANGE name first_name VARCHAR(100);
+
+-- DROP COLUMN
+
+ALTER TABLE students DROP address;
+
+-- ADD CONSTRAINTS
+
+ALTER TABLE students ADD PRIMARY KEY (id);
+ALTER TABLE students ADD UNIQUE (email);
+
+ALTER TABLE students ADD CONSTRAINT fk_dept
+ FOREIGN KEY (dept_id) REFERENCES department(id);
+
+ALTER TABLE students DROP PRIMARY KEY;
+ALTER TABLE students DROP FOREIGN KEY fk_dept;
+```
+3. DROP
+
+- used to permanently delete objects.
+
+```sql
+DROP TABLE students;
+DROP TABLE IF EXISTS students;
+DROP DATABASE college;
+DROP DATABASE IF EXISTS college;
+
+DROP INDEX idx_student_name ON students;
+```
+
+4. TRUNCATE
+- Used to delete all records but keep structure.
+- faster than delete
+- cannot use WHERE
+- RESETS AUTO_INCREMENT
+- Cannot be rolled back.
+
+```sql
+TRUNCATE TABLE students;
+```
+
++-----+---------------+-----------------+---------------------+
+| sno | features      | drop            | truncate          |
++-----+---------------+-----------------+---------------------+
+| 1   | structure     | removed         | remains             |
+| 2   | data          | removed         | removed             |
+| 2   | AUTO_INCR...  | removed         | reset               |
+| 3   | rollback      | No              | no                  |
++-----+---------------+-----------------+---------------------+
 
 
-SELECT * FROM departments;
-SELECT * FROM students;
-SELECT * FROM employees;
-SELECT * FROM orders;
+5. RENAME
+
+- RENAME A TABLE
+- what happens when you rename
+    - table structure remains same
+    - data remains unchanged
+    - indexes remain
+    - constraints remain
+    - auto_increment value remains
+    - only the table name changes
+- MySql does not support RENAME database;
+
+```sql
+RENAME TABLE students TO learners;
+ALTER TABLE students RENAME TO learners;
+
+RENAME TABLE students TO learners, department TO dept;
+```
 
 
-## 1. Find students who scored more than average marks.
 
+## DML ( DATA MANIPULATION LANG )
 
-SELECT * FROM students
-WHERE marks > (SELECT AVG(marks) FROM students);
+- DML are used to insert, update, retrive, and deletedata 
+  inside database tables.
+- DML works on existing table data, not on structure.
+
+1. INSERT
+    
+```sql
+-- insert single row
+-- * ordrer of values must match table columns
+INSERT INTO students VALUES (1, 'hari', 'CSE');
+
+-- Insert with column names ( recommended )
+--  Safe | readable | order dependent
+INSERT INTO students ( id, name, dept_id )
+VALUES 
+    (1,'Rahul',2),
+    (2,'Mownish',3);
+
+INSERT INTO marks (id, marks) SELECT id, marks FROM students;
+INSERT INTO students (id, name, dept) VALUES (5, NULL, 'CIVIL');
+-- 
+
+```
+
+2. SELECT
+3. UPDATE
+```sql
+-- Dangerous ( no WHERE )
+UPDATE students SET dept = 'IT';
+-- With where
+UPDATE students SET dept = 'IT' WHERE id IN (1,4,12);
+UPDATE students SET name = 'Arjun', dept = 'ECE' WHERE id = 3;
+-- with sub query
+UPDATE students SET dept = 'CSE' WHERE id IN ( SELECT id FROM toppers );
+```
+4. DELETE ALL ROWS
+- Table remain
+- Can be rolled back ( if transaction supported )
+```sql
+-- DELETE all rows
+DELETE FROM students;
+-- DELETE USING SUB-QUERIES
+DELETE FROM students
+    WHERE id IN  (SELECT id FROM alumni);
+```
+
+# DCL ( Data Control Language )
+
+- DCL commands are used to control access and permissions on database object.s
+- mostly used by DBA ( database administrators ) / Admin, not normal users.
+
+## two commands
+
+- `GRANT`
+- `REVOKE`
+
+1. GRANT
+
+```sql
+GRANT SELECT ON students TO user1;
+-- alreay one user called user1.
+-- we are providing READ access to this user1
+-- ON ( students ) table.
+-- INSERT, UPDATE, DELETE
+
+-- MULTIPLE privileges
+GRANT SELECT, INSERT, UPDATE ON students TO user1;
+
+-- GRANT ALL 
+GRANT ALL PRIVILEGES ON students TO user1;
+
+-- DB LEVEL ACCESS
+GRANT ALL PRIVILEGES ON college_db.* TO user1;
+
+-- SCENARIO
+-- - you are the only admin.
+--   want to create another admin and grant permission 
+GRANT SELECT ON students TO admin1 WITH GRANT OPTION;
+```
+2. REVOKE
+
+- used to remove permissions
+
+```sql
+REVOKE SELECT ON students FROM user1;
+REVOKE UPDATE ON students FROM user1;
+REVOKE ALL PRIVILEGES ON students FROM user1;
+GRANT SELECT ON students TO admin1 WITH GRANT OPTION;
+REVOKE GRANT OPTION ON students FROM admin1;
+```
+
+3. COMMON PREVILGES IN MYSQL LIST
+
+SELECT      - read data
+INSERT      - add data
+UPDATE      - modify data
+DELETE      - remove data
+CREATE      - create object
+DROP        - delete object
+ALTER       - modify structure
+INDEX       - CREATE index
+ALL         - all privileges
+
+## HOW TO CREATE NEW USERS ?
