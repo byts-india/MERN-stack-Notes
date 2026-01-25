@@ -454,7 +454,3 @@ ON e1.name = e2.name AND e1.id > e2.id;
 -- 40. Why join is faster than subqueyr ?
 
 
-
-
-
-
