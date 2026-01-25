@@ -106,6 +106,7 @@ DROP INDEX idx_student_name ON students;
 TRUNCATE TABLE students;
 ```
 
+```text
 +-----+---------------+-----------------+---------------------+
 | sno | features      | drop            | truncate          |
 +-----+---------------+-----------------+---------------------+
@@ -114,7 +115,7 @@ TRUNCATE TABLE students;
 | 2   | AUTO_INCR...  | removed         | reset               |
 | 3   | rollback      | No              | no                  |
 +-----+---------------+-----------------+---------------------+
-
+```
 
 5. RENAME
 
