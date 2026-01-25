@@ -157,3 +157,49 @@ FROM students
 ORDER BY marks DESC
 LIMIT 1
 OFFSET 1;
+
+
+-- 11. Find employees who don't have managers
+
+SELECT * FROM employees
+WHERE manager_id IS NULL;
+
+-- 12. Fetch employee and their manager name
+
+SELECT
+    e.name as employee,
+    m.name as manager 
+FROM employees as e
+JOIN employees as m
+ON e.manager_id = m.id;
+
+-- 13. Find employees earning more than their manager.
+
+SELECT
+    e.name as employee,
+    e.salary as employee_salary,
+    m.name as manager,
+    m.salary as manager_salary 
+FROM employees as e
+JOIN employees as m
+ON e.manager_id = m.id 
+WHERE e.salary > m.salary;
+
+-- 14. Get total salary department-wise.
+
+SELECT 
+    dept_id, sum(salary)
+FROM employees
+GROUP BY dept_id;
+
+-- 15. Find employees joined in last 30 days.
+
+-- 16. Find customers who placed more than 3 orders.
+
+-- 17. Find total order amount per customer.
+
+-- 18. Find highest order amount. 
+
+-- 19. Fetch orders placed in current month.
+
+-- 20. Find customers who never placed an order.
