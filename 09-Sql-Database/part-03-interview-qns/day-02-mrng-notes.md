@@ -243,3 +243,83 @@ INDEX       - CREATE index
 ALL         - all privileges
 
 ## HOW TO CREATE NEW USERS ?
+
+```sql
+-- CREATE A new user (user1) BY password ( pass@123 )
+-- <localhost>  : access within the machine
+-- ip address   : access within from the ip address
+-- %            : access from anywhere.
+
+CREATE USER 'user1'@'localhost' IDENTIFIED BY 'pass@123';
+CREATE USER 'user2'@'172.12.21.22' IDENTIFIED BY 'pass@123';
+CREATE USER 'user3'@'%' IDENTIFIED BY 'pass@123';
+
+-- create user without password.
+CREATE USER 'user4'@'localhost';
+/**
+ * Not recommended
+ * Mostly asked as a theory questions
+ * **/
+
+-- after creating do save changes
+FLUSH PRIVILEGES;
+```
+## login as a root user, give password
+> mysql -u root -p
+## login as a user1.
+> mysql -u user1 -p
+
+## TCL ( Transaction control lang )
+
+1. COMMIT
+2. ROLLBACK
+3. SAVEPOINT
+4. SET AUTOCOMMIT
+
+1. COMMIT
+
+- permanently saves all changes made in the transactions.
+- cannot rollback after commit 
+
+2. ROLLBACK
+
+- reverts changes
+- Works only before commit 
+
+3. SAVEPOINT
+
+- `SAVEPOINT sp1;`
+
+4. ROLLBACK to SAVEPOINT
+
+- `ROLLBACK TO sp1;`
+- `RELEASE SAVEPOINT sp1;`
+
+5. SET AUTOCOMMIT
+
+- `SET AUTOCOMMIT = 0;  -- TURN OFF AUTOCOMMIT`
+- `SET AUTOCOMMIT = 1;  -- TURN ON  AUTOCOMMIT`
+
+```sql
+SET AUTOCOMMIT = 0;
+
+UPDATE students SET marks = 45 WHERE id = 1;
+SAVEPOINT s1;
+
+UPDATE students SET marks = 95 WHERE id = 1;
+ROLLBACK TO s1;
+
+COMMIT;
+
+SET AUTOCOMMIT = 1;
+```
+
+## ACID properties ( MUST - KNOW )
+
+A - Atomicity    - All or nothing
+C - Consistency  - valid state
+I - Isolation    - No interferences
+D - Durability   - Data persists
+
+### How we achieve ACID properties ?
+- TCL helps enforce Atomicity & durability
