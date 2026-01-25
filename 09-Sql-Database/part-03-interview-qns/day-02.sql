@@ -194,12 +194,51 @@ GROUP BY dept_id;
 
 -- 15. Find employees joined in last 30 days.
 
--- 16. Find customers who placed more than 3 orders.
+SELECT *
+FROM employees
+WHERE joining_date >= CURDATE() - INTERVAL 30 DAY;
+
+-- 16. Find customers who placed more than 1 orders.
+
+SELECT customer_id
+FROM orders
+GROUP BY customer_id
+HAVING COUNT(*) > 1;
 
 -- 17. Find total order amount per customer.
 
+SELECT 
+    customer_id, SUM(amount) AS total_spent
+FROM orders
+GROUP BY customer_id;
+
 -- 18. Find highest order amount. 
+
+SELECT MAX(amount) FROM orders;
 
 -- 19. Fetch orders placed in current month.
 
+SELECT *
+FROM orders
+WHERE 
+    MONTH(order_date) = MONTH(CURDATE()) AND
+    YEAR(order_date) = YEAR(CURDATE());
+
 -- 20. Find customers who never placed an order.
+
+CREATE TABLE customers (
+    id      INT         PRIMARY KEY AUTO_INCREMENT,
+    name    VARCHAR(50)
+);
+
+INSERT INTO customers (id, name) VALUES (101 ,'kayal');
+INSERT INTO customers (id, name) VALUES (102 ,'khan');
+INSERT INTO customers (id, name) VALUES (103 ,'ram');
+INSERT INTO customers (id, name) VALUES (104 ,'jothi');
+
+SELECT
+    c.name
+FROM customers c 
+LEFT JOIN orders as o 
+ON c.id = o.customer_id
+WHERE o.id IS NULL;
