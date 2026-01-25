@@ -1,0 +1,8 @@
+SHOW DATABASES;
+DROP DATABASE pvp_class;
+CREATE DATABASE pvp_class;
+CREATE DATABASE cartoons;
+SHOW DATABASES;
+USE pvp_class;
+use temp;
+SELECT DATABASE();
