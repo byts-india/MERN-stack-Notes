@@ -323,3 +323,138 @@ WHERE id NOT IN
   FROM students 
   WHERE dept_id IS NOT NULL 
 );
+
+-- 36. Find max salary per department
+
+SELECT dept_id, MAX(salary)
+FROM employees
+GROUP BY dept_id;
+
+-- 37. Add NOT NULL constraint
+
+ALTER TABLE employees
+MODIFY name VARCHAR(100) NOT NULL;
+
+-- 38. CHECK TABLE STRUCTURE
+
+DESCRIBE employees;
+DESC employees;
+
+-- 39. Find total num of records
+
+SELECT COUNT(*) FROM employees;
+
+-- 40. paginations
+
+SELECT * FROM orders LIMIT 2 OFFSET 2;
+
+-- -----------------------------------------------------------
+
+-- [#] COGNIZANT REPEATED MYSQL QUESTIONS
+
+-- 01. Find second highest salary  (   Most repeated )
+
+SELECT salary FROM employees
+LIMIT 1 OFFSET 1;
+
+-- 02. Find 3rd highest salary
+
+SELECT DISTINCT salary FROM employees
+ORDER BY salary DESC LIMIT 1 OFFSET 2;
+
+-- 03. Diff btw DELETE, TRUNCATE, DROP
+/**
+    DELETE  : row by row | Where possible | rollback possbile 
+    TRUNCATE: Faster | No where | No rollback
+    DROP    : deleles structure + dat
+**/
+
+-- 04. Find duplicate records
+SELECT 
+    name, count(*)
+FROM students
+GROUP BY name
+HAVING COUNT(*) > 1;
+
+-- 05. Remove duplicate records.
+
+DELETE e1 
+FROM employees e1
+JOIN employees e2
+ON e1.name = e2.name AND e1.id > e2.id;
+
+-- 06. Find employees without manager
+
+-- 07. Find employee & manager name ( self join )
+
+-- 08. INNER vs LEFT JOIN 
+
+-- 09. Find customers who never placed an order
+
+-- 10. Find highest salary deapartment wise
+
+-- 11. HAVING vs WHERE
+
+-- 12. Find employees earning more than average
+
+-- 13. Count employees department wise
+
+-- 14. Find records from last 7 days
+
+-- 15. LIKE vs =
+
+-- 16. Find names starting with "A"
+
+-- 17. BETWEEN vs ( >= <= )
+
+-- 18. Find total salary
+
+-- 19. What is index ? why used ?
+
+-- 20. create index
+
+-- 21. Find max marks without max()
+
+-- 22. Subquery vs join
+
+-- 23. Find students common in two tables.
+
+-- 24. what is ACID property ?
+
+-- 25. what is normalization ?
+
+-- 26. what is primary key ?
+
+-- 27. what is foreign key ?
+
+-- 28. count records.
+
+-- 29. diff count(*) vs count(col)
+
+-- 30. what is view ?
+
+-- 31. find second last record ?
+
+-- 32. what is AUTO_INCREMENT ?
+
+-- 33. Find employees with same salary ?
+
+-- 34. what is NULL ?
+
+-- 35. Explain GROUP BY ?
+
+-- 36. Can we use WHERE with GROUP BY ?
+
+-- 37. TRUNCATE rollback possible ?
+
+-- 38. Find top 3 salaries
+
+-- 39. what happens we skip GROUP BY ?
+
+-- 40. Why join is faster than subqueyr ?
+
+
+
+
+
+
