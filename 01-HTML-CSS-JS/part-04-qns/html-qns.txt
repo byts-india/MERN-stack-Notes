@@ -64,3 +64,193 @@
 			content
 		</body>
 	</html>
+
+11. What is DOCTYPE ?
+
+- It will tell the browser that which version you are using.
+- `<!DOCTYPE html>` mean using HTML5 version.
+
+12. <head> and <body> tag ?
+- <head>  -> title, css, metdata etc.
+- <body>  -> visible contents will be present. 
+
+13. what are meta tags ?
+- provide information about webpage.
+- example:
+	- <meta charset="UTF-8">
+    - <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+14. what is mean by charset ?
+	- it defines character encoding. Example
+
+15. what is iframe ?
+	-	used to display another webpage inside a page.
+	- eg: 	<iframe src="https://example.com"></iframe>
+
+16. what is form tag ?
+	- used to collect user input
+
+	<form>
+		<input type='text'>
+	</form>
+
+17. Types of input fields ?
+	- text
+	- password
+	- email
+	- number
+	- radio
+	- checkbox
+	- file
+	- submit
+
+18. dif btw GET and POST ?
+	- GET
+		- Data in URL
+		- Less secure
+		- Limited data
+	- POST
+		- data in body
+		- more secure
+		- large data
+
+19. what is the purpose of required field ?
+	- Make input mandatory.
+
+	<form>
+        <input type="text" name="username" required placeholder="username" id="username">
+        <br>
+        <input type="password" name="password" required placeholder="password" id="password">
+        <br>
+        <button type="reset"> reset </button>
+        <button type="submit"> submit </button>
+    </form>
+
+20. Types of List in HTML.
+	- ordered list 		<ol> (mostly used)  | numbered list
+	- unordered list 	<ul> (mostly used)  | bulleted list
+	- description list  <dl>
+
+22. how to create a table ?
+
+  <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+
+23. how to insert image ?
+
+	- <img src="https://example.com/photo.jpg" />
+
+24. dif btw relative and absolute url ?
+
+- relative url : ./photo.jpg
+- absolute url : https://example.com/photo.jpg
+
+note:
+	./      current folder
+	../     previous folder
+	../../  previuos folder and its prevous folder
+
+25. how to add video / audio in html 5 ?
+
+	<video controls>
+		<source src="https://example.com/video.mp4">
+	</video>
+
+26. what is DOM ?
+
+	- DOM : Document object model
+	- represents HTML as objects so Javscript can manipulate it.
+
+27. diff btw block and inline elements ?
+	- block   : <div>  , <p>
+	- inline  : <span> , <a>
+
+28. what are global attributes ?
+
+- attributes used in all elements, example.
+	- id / class / style / title
+
+29. what is accessibility in HTML ?
+
+- making website usable for disabled users.
+example: using alt attributes.
+
+30. what is responsive design in html ?
+
+- designing webpages for all screen size
+  using meta viewport + css.
+
+- size:
+	- laptop
+	- big monitors
+	- phone
+	- tab
+
+31. Diff btw <script> and <noscript> tag? 
+- <script>   javascript code
+- <noscript> show when js is disbaled.
+
+32. <link> vs <a>
+- <link>
+	- used in <head> tag.
+	- connect css.
+- <a>
+	- used inside <body> tag.
+	- create hyperlinks. 
+
+33. what is purpose of alt attributes ?
+
+	- Displays text if image is fails to load.
+
+34. can we nest html elements ?
+	- yes 
+
+	<div> <p> hello </p> </div>
+
+35. diff btw `id` and `class` ?
+
+	- id 	:  unique 			| #id
+	- class :  mutli elements 	| .class
+
+36. what is data-* attribute ?
+	- custom attributes
+	- <div data-id="10"></div>
+
+37. what is favicon ?
+
+	- small icon shown in browser tab.
+	- <link rel='icon' href="icon.ico">
+
+38. what is viewport ?
+- controls layout on mobile layouts.
+
+39. what are HTML entites ?
+	- special characters. eg
+	- &lt;    <
+	- &gt;    >
+	- &nbsp = space
+
+40. diff btw <section> and <article> tag ?
+	- <section> = group of content
+	- <article> = independent content
+
