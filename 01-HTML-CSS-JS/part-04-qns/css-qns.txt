@@ -1,0 +1,251 @@
+1. What is CSS?
+  - cascading style sheets
+  - which used for styling and design HTML pages.
+
+2. Types of CSS
+  - Inline css    : inside HTML tag
+  - internal css  : inside <style> tag on <head>
+  - external css  : separate .css file.
+
+3. Which CSS type has highest priority?
+  - inline css ( unless !important is used )
+
+4. What is CSS selector?
+  - a selector selects HTML elements to apply styles.
+  - eg:
+    p {
+      color: red;
+    }
+  - In above eg, `p` is a element selector.
+
+5. Types of CSS selectors?
+  - element, tag, type     eg: p { color: red }
+  - class selector
+  - id selector
+  - universal selector (*)
+  - attribute selector
+  - pseudo-class
+  - pseudo-element
+  - group selector
+
+6. Difference between class and id?
+  - class
+    - can use reused
+    - uses `.`
+    - mulitple allowed
+  - id
+    - unique
+    - uses #
+    - only once 
+
+7. What is CSS specificity?
+  - it decides which ccss rule is applied when 
+    multiple rules target the same element.
+
+  Inline > id > class > element
+
+8. What is `!important`?
+  - Forcces a style to override all other rules.
+  p {
+    color: red !important;
+  }
+
+9. What is CSS box model?
+   Every element is a box made of
+     1. content
+     2. padding
+     3. border
+     4. margin
+
+10. Difference between margin and padding?
+  - margin
+    - space outside element
+    - affects outer space
+  - padding
+    - space inside element
+    - affects inner space
+
+11. What is `box-sizing`?
+  - controls how width/height is calculated.
+  - eg:
+    p {
+      box-sizing: border-box; 
+    }
+  - includes both padding & border
+
+12. Position types in CSS?
+  - static
+  - relative
+  - absolute
+  - fixed
+  - sticky
+
+13. Difference between relative and absolute?
+  - relative
+    - based on itself.
+    - occupies space
+  - absolute 
+    - based on nearest positioned parent.
+    - removed from normal flow.
+  
+14. What is `z-index`?
+  - controls stack order of positioned elements.
+  - higher value = comes to top
+
+15. Difference between display: none and visibility: hidden?
+  - display: none
+    - element removed
+    - not visible
+  - visibility: hidden
+    - space remains
+    - invisible but occupies space.
+
+16. What is Flexbox?
+  - A 1d layout system to align items in row or column
+  - eg: 
+    div {
+      display: flex;
+    }
+
+17. Main axis vs cross axis?
+  - main axis:   direction of flex ( row / column )
+  - cross axis:  perpendicular to main axis.
+
+18. Important Flexbox properties?
+  - parent
+    - display
+    - flex-direction
+    - justify-content
+    - align-items
+    - flex-wrap
+  - child
+    - flex
+    - order
+    - align-self
+
+19. Difference between justify-content and align-items?
+  - justify-content
+    - aligns along main axis
+  - align-items
+    - aligns along cross axis
+
+20. Difference between Flexbox and Grid?
+  - flex
+    - 1d layout
+    - rows or columns
+    - content-based
+  - grid
+    - 2d layout
+    - rows or columns
+    - layout-based
+
+21. What is CSS Grid?
+  - a 2d layout system for complex page layouts using
+    rows & columns.
+
+22. CSS units?
+  - absolute:    px, cm
+  - relative:    %, em, rem, vw, vh
+
+23. Difference between em and rem?
+  - em: based on parent
+  - rem: based on root (HTML)
+
+24. Ways to define colors?
+  - color name ( red, green )
+  - hex        ( #ff0000 )
+  - rgb        ( rgb(255,0,0) )
+  - rgba       ( rgba(255,0,0,0.5) )
+  - hsl        ( hsl(112, 100%, 50%) )
+
+25. Difference between RGB and RGBA?
+  - rgb : no transparency | 3 values
+  - rgba: transparency    | 4 values
+
+26. Background properties?
+  - background-color
+  - background-image
+  - background-repeat
+  - background-position
+  - background-size
+
+27. What are pseudo-classes?
+  used to define special states of elements
+  eg:
+    button:hover {}
+    button:active {}
+    button:focus {}
+
+28. Pseudo-element examples?
+  - used to style part of an element
+  eg: 
+    ::before
+    ::after
+    ::first-letter
+
+29. What is responsive design?
+  - design that adapts to different screen size
+  - flex or grid
+  - viewports
+  - media queries
+
+30. What are media queries?
+    - apply css based on screen size.
+  eg:
+  @media (max-widht: 768px) {
+
+  }
+
+31. Mobile-first vs desktop-first?
+  - mobile first
+    - start small screens
+    - min-width
+  - desktop first
+    - start larger screens
+    - max-width
+
+32. What is overflow?
+  - controls the content overflows
+  - values
+    - hidden
+    - scroll
+    - auto
+    - visible
+
+33. What is opacity?
+  - controls transparency of an element.
+  - range 0 to 1.
+
+34. Difference between opacity and visibility?
+  - opacity
+    - affects child elements
+    - transparent
+  - visibility
+    - does not affect children
+    - invisible
+
+35. What is `float`?
+  - positions element to left or right.
+  eg:
+    h1 {
+      float: right;
+    }
+
+36. What is shorthand property?
+  - single line for multiple values.
+  eg:
+    h1 { 
+      margin: 1px 2px 3px 4px;
+      margin-top: 1px;
+      margin-right: 2px;
+      margin-bottom: 3px;
+      margin-left: 4px;
+    }
+
+37. What is `cursor: pointer`?
+  - shows hand icon on hover.
+  - used mainly for button & link
+
+38. What is `inherit`?
+39. Can CSS be used without HTML?
+40. 

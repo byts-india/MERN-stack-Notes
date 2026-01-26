@@ -1,0 +1,190 @@
+
+## 1️⃣ JavaScript Basics (Must-Know)
+
+1. What is JavaScript?
+2. Is JavaScript interpreted or compiled?
+3. Difference between JavaScript and Java?
+4. Where can we write JavaScript code?
+5. What are data types in JavaScript?
+6. Difference between `var`, `let`, and `const`?
+7. What is `undefined`?
+8. What is `null`?
+9. Difference between `==` and `===`?
+10. What is type coercion?
+11. What is `NaN`?
+12. How to check data type in JavaScript?
+13. What is `typeof null`?
+14. What is hoisting?
+15. Is JavaScript case-sensitive?
+
+---
+
+## 2️⃣ Functions & Scope (Very Frequently Asked)
+
+16. What is a function?
+17. Types of functions in JavaScript?
+18. What is function hoisting?
+19. What is scope in JavaScript?
+20. Types of scope?
+21. What is global scope?
+22. What is local scope?
+23. Difference between function scope and block scope?
+24. What is closure?
+25. Why closures are used?
+26. What is callback function?
+27. What is IIFE?
+
+---
+
+## 3️⃣ Arrays & Objects (CTS Favorite)
+
+28. How to create an array?
+29. Common array methods?
+30. Difference between `map()`, `filter()`, and `reduce()`?
+31. Difference between `forEach()` and `map()`?
+32. What is `push()` vs `pop()`?
+33. What is `shift()` and `unshift()`?
+34. How to remove duplicates from an array?
+35. What is an object?
+36. How to access object properties?
+37. Difference between dot and bracket notation?
+38. What is destructuring?
+39. What is spread operator?
+40. What is rest operator?
+
+---
+
+## 4️⃣ Strings & Numbers
+
+41. Common string methods?
+42. Difference between `slice()` and `substring()`?
+43. How to reverse a string?
+44. How to check palindrome?
+45. How to convert string to number?
+46. Difference between `parseInt()` and `Number()`?
+47. What is `toFixed()`?
+
+---
+
+## 5️⃣ DOM & Events (CTS Practical Round)
+
+48. What is DOM?
+49. How to select elements in DOM?
+50. Difference between `getElementById` and `querySelector`?
+51. What is event?
+52. Types of events?
+53. What is event bubbling?
+54. What is event capturing?
+55. How to stop event propagation?
+56. Difference between `onclick` and `addEventListener()`?
+57. What is `preventDefault()`?
+
+---
+
+## 6️⃣ Asynchronous JavaScript (Highly Repeated)
+
+58. What is synchronous and asynchronous?
+59. What is `setTimeout()`?
+60. What is `setInterval()`?
+61. What is callback hell?
+62. What is promise?
+63. Promise states?
+64. Difference between `then()` and `catch()`?
+65. What is `async` and `await`?
+66. Difference between promise and async/await?
+67. What is `fetch()`?
+
+---
+
+## 7️⃣ Execution & Internals (Tricky CTS Questions)
+
+68. What is execution context?
+69. What is call stack?
+70. What is event loop?
+71. What is memory heap?
+72. What is temporal dead zone?
+73. What is strict mode?
+74. What is `this` keyword?
+75. What is global object?
+76. What is arrow function?
+77. Difference between normal function and arrow function?
+78. Does arrow function have `this`?
+
+---
+
+## 8️⃣ Output-Based Questions (CTS Written Test)
+
+79. Output of:
+
+```js
+console.log(1 + "2" + 3);
+```
+
+80. Output of:
+
+```js
+console.log(typeof NaN);
+```
+
+81. Output of:
+
+```js
+var a = 10;
+(function(){
+  console.log(a);
+  var a = 20;
+})();
+```
+
+82. Output of:
+
+```js
+let a = 10;
+{
+  let a = 20;
+  console.log(a);
+}
+console.log(a);
+```
+
+83. Output of:
+
+```js
+console.log([] == []);
+```
+
+84. Output of:
+
+```js
+console.log(0 == false);
+console.log(0 === false);
+```
+
+---
+
+## 9️⃣ Scenario-Based Questions (Real CTS Interviews)
+
+85. How to check if a variable is array?
+86. How to debounce a function?
+87. How to throttle a function?
+88. How to deep copy an object?
+89. Difference between shallow copy and deep copy?
+90. How to handle errors in JavaScript?
+91. How to optimize JavaScript performance?
+92. How to validate form using JavaScript?
+93. How to prevent multiple button clicks?
+94. How to sort array of objects?
+95. How to remove a specific object from array?
+
+---
+
+## 🔟 JavaScript ES6 (Recently Asked)
+
+96. What is ES6?
+97. Features of ES6?
+98. What are template literals?
+99. What is default parameter?
+100. What is module?
+101. Difference between `export` and `export default`?
+102. What is optional chaining?
+103. What is nullish coalescing?
