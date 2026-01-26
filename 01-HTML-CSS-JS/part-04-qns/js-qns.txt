@@ -2,20 +2,85 @@
 ## 1️⃣ JavaScript Basics (Must-Know)
 
 1. What is JavaScript?
+  Javascript is a scripting lang.
+  It is used to build a dynmaic web page.
+
 2. Is JavaScript interpreted or compiled?
+  - JavaScript is best described as a just-in-time (JIT) compiled language, meaning it uses a hybrid approach of both interpretation and compilation
+
 3. Difference between JavaScript and Java?
+  - Js
+    - interpreted
+    - it is used majorly in web-dev.
+    - scripting lang.
+    - dynamic typed lang
+  - java
+    - compiled
+    - strictly typed lang
+
 4. Where can we write JavaScript code?
+  - inside <script> tag
+  - outside seperate .js file.
+
 5. What are data types in JavaScript?
+  - number
+  - string
+  - boolean
+  - undefined
+  - Symbol
+  - BigInt
+  - array
+  - object
+
 6. Difference between `var`, `let`, and `const`?
 7. What is `undefined`?
+  - undefined is type, which is stored in all variable by default.
+  - eg:
+    let a;
+    console.log(a); // undefined.
+
 8. What is `null`?
+  - null is of type object.
+  - inside object, if you to tell it is nothing then use null over undefined.
+  eg:
+    let info = {
+      name: null,
+      age: 12
+    };
+
 9. Difference between `==` and `===`?
-10. What is type coercion?
+  eg:
+    console.log( 10 == '10' );    // true
+    console.log( 10 === '10' );   // false
+
+10. What is type coercion? 
+ - automatic conversion of one data type into another by js 
+  during operations.
+ - js is loosly typed.
+ - implicit and explicit coercion
+
+ eg: "5" + 2
+      52
+
 11. What is `NaN`?
+ - NaN is a number type.
+ - which tell `Not A Number`
+
 12. How to check data type in JavaScript?
+  - using typeof keyword.
+
 13. What is `typeof null`?
+  - give object.
+
 14. What is hoisting?
+  - a process of moving all declaration to top is called hoisting.
+  eg:
+    console.log(a);
+
+    var a = 10;
+
 15. Is JavaScript case-sensitive?
+  - yes it is case sensitive.
 
 ---
 
@@ -188,3 +253,4 @@ console.log(0 === false);
 101. Difference between `export` and `export default`?
 102. What is optional chaining?
 103. What is nullish coalescing?
+
