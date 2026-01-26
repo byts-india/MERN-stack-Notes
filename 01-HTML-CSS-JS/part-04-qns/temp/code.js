@@ -1,3 +1,3 @@
-console.log(a);
+let a = 123.123;
 
-var a = 10;
+console.log(a.toFixed(2));

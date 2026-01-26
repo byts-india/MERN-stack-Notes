@@ -87,55 +87,239 @@
 ## 2️⃣ Functions & Scope (Very Frequently Asked)
 
 16. What is a function?
+  - function is a concept. where reusable codes are kept.
+  - so that we can call it when ever we want. 
+
 17. Types of functions in JavaScript?
+  - normal function
+  - function expression
+  - arrow function
+
 18. What is function hoisting?
+  - keeping function declartion at bottom of file.
+  - as process of moving all declaration to top by js, is called hoisting.
+  - func call is still valid.
+
 19. What is scope in JavaScript?
+  - scope reference the access and availability of a variable or func 
+    in a context is called scope.
+
 20. Types of scope?
+  - local or block scope
+  - function scope
+  - global scope
+
 21. What is global scope?
+  - a variable or func defined outside. 
+  - which accessible from anywhere.
+
 22. What is local scope?
+  - it is block level scope
+  eg:
+    for(let i=0; i<2; i++) {
+      console.log(i);
+    }
+  - this variable i is not access outside the for loop.
+  - so variable i is local scope
+
 23. Difference between function scope and block scope?
+  - declared and accessible within the function is called function scope.
+  - declared and accessible within the block is called block scope.
+
 24. What is closure?
+  - is created when a function remembers and accesses variables from
+    it outer ( parent ) scope. even after the outer function has 
+    finished it execution.
+
+    function + its lexical scope = closure 
+
 25. Why closures are used?
+  - data hiding ( private variables )
+  - maintain state btw functions calls
+  - callbacks & async operations.
+  - etc.
+
 26. What is callback function?
+  - is a function passed to another function.
+  - which will be called later is called callback function
+  eg:
+    setTimeout(() => { console.log("called me."); }, 2000);
+    here `() => {console.log("called me."); }` is a callback func.
+
+
 27. What is IIFE?
+  - Immediately invoked function execution
+
+  (() => {
+    console.log("hello");
+  })();
+
 
 ---
 
 ## 3️⃣ Arrays & Objects (CTS Favorite)
 
 28. How to create an array?
+  eg:
+    let arr = [10,20,30];
+
 29. Common array methods?
+  eg:
+    .push()
+    .map()
+    .forEach()
+    .find()
+    .findIndex()
+    .reverse()
+    .sort()
+
 30. Difference between `map()`, `filter()`, and `reduce()`?
+  - map()
+    - will map a logic to all its items
+    - return same size of items as given
+  - filter()
+    - will filter items based on logic
+    - return same size or lesser no of items given
+  - reduce()
+    - give as single value.
+    - mostly used for sum, product of elements.
+
 31. Difference between `forEach()` and `map()`?
+    - In forEach() won't return any value.
+    - map() will return values.]
+
 32. What is `push()` vs `pop()`?
+  - arr.push()    : add elements at last / right
+  - arr.pop()     : remove elements at last / right
+
 33. What is `shift()` and `unshift()`?
+  - arr.unshift()    : add elements at first / left
+  - arr.shift()     : remove elements at first / left
+
 34. How to remove duplicates from an array?
+    let arr = [100 , 200,  200, 300, 400];
+
+    let new_arr = []
+
+    for(x of  new Set(arr)){
+        new_arr.push(x);
+    }
+
+    console.log(new_arr);
+
 35. What is an object?
+  - object is a data type in js.
+  - where mostly it store as key value pair.
+
 36. How to access object properties?
+  - we can access in two ways. 
+  - using . operator
+  - using [] 
+  eg:
+    obj = {
+      name: "ace",
+      age: 33
+    };
+    console.log( obj.name );
+    console.log( obj['name'] );
+
 37. Difference between dot and bracket notation?
+  - dot notation:
+    - eg: obj.name 
+    - here key should not be seperated with space. 
+  - bracket notation
+    - eg: obj["name"]
+    - here key can be seperated with spaces.
+
 38. What is destructuring?
+  - removing from structure .
+  - array destructuring
+    eg:  arr = [...[10,20], ...[30,40]];
+  - object destructuring
+    eg:  obj = {...{a:10,b:20}};
+
 39. What is spread operator?
+  - ... three dots is called spread operator.
+  - it is named on where we are using this operator.
+  - eg:  arr = [...[10,20], ...[30,40]];
+
 40. What is rest operator?
+  const [a, ...b] = [...[10,20], ...[30,40]];
 
 ---
 
 ## 4️⃣ Strings & Numbers
 
 41. Common string methods?
-42. Difference between `slice()` and `substring()`?
-43. How to reverse a string?
-44. How to check palindrome?
-45. How to convert string to number?
-46. Difference between `parseInt()` and `Number()`?
-47. What is `toFixed()`?
+  .split()
+  .replace()
+  .toLowerCase()
+  .toUpperCase()
+  .charAt()
 
+42. Difference between `slice()` and `substring()`?
+  - slice()
+    - can accept neg indexs
+    - more flexible
+    - works with string & arrays
+  - substring()
+    - does not support neg indexes
+    - auto swap start and end. if start > end
+    - works only with string.
+
+43. How to reverse a string?
+  let arr = "abcde".split('');
+  arr.reverse()
+  s = arr.join("")
+  console.log(s);
+
+44. How to check palindrome?
+  let val = "madam";
+  n = val.length
+
+  flag = true;
+
+  for(let i=0; i<n/2; i++) {
+      if (val[i] != val[n-i-1]) {
+          flag = false;
+      }
+  }
+
+  console.log(flag ? 'palindrome' : 'not a palindrome');
+
+45. How to convert string to number?
+    - Number('123');
+    - parseInt('123')
+46. Difference between `parseInt()` and `Number()`?
+  - both are used to convert string to number.
+  - parseInt() stops cconversion when it hits a non numeric char
+  - Number() if non numeric found, it stores NaN.
+
+47. What is `toFixed()`?
+  - used to format a number to a fixed number of decimal places.
 ---
 
 ## 5️⃣ DOM & Events (CTS Practical Round)
 
 48. What is DOM?
+  - DOM document object model.
+  - HTML is store in object so js we can access HTML elements.
+
 49. How to select elements in DOM?
+  - document.getElementById("");
+  - document.getElementByClassName("");
+
 50. Difference between `getElementById` and `querySelector`?
+  - both are used to select HTMl ele.
+  - getElementById()
+    - fast
+    - simple
+    - return single element
+  - querySelector()
+    - slightly slower
+    - little complex
+    - return first matched ele.
+
 51. What is event?
 52. Types of events?
 53. What is event bubbling?
