@@ -54,6 +54,13 @@
 	- <em>     = emphasis ( semantic )
 	- <i>      = italic style only
 10. Basic html structure ?
-```html
-
-```
+	
+	<!DOCTYPE html>
+	<html>
+		<head>
+			<title> my document </title>
+		</head>
+		<body>
+			content
+		</body>
+	</html>
