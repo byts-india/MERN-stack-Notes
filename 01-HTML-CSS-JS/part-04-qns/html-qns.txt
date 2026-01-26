@@ -7,7 +7,7 @@
     - TAGS
     	- are predefined keyords enclosed in angle brackets (<>)
     	- used to create elements.
-		- eg: <p> Hello world </p>  
+		- eg: `<p>` Hello world `</p>`  
 	    - `<p>` is called open tag.
 	    - `</p>` is called close tag.
 	    -  `<p> Hello world </p>` is called element
