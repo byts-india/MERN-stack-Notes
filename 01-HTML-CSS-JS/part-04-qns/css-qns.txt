@@ -39,13 +39,13 @@
     - only once 
 
 7. What is CSS specificity?
-  - it decides which ccss rule is applied when 
+  - it decides which css rule is applied when 
     multiple rules target the same element.
 
   Inline > id > class > element
 
 8. What is `!important`?
-  - Forcces a style to override all other rules.
+  - Forces a style to override all other rules.
   p {
     color: red !important;
   }
@@ -74,11 +74,11 @@
   - includes both padding & border
 
 12. Position types in CSS?
-  - static
-  - relative
-  - absolute
-  - fixed
-  - sticky
+  - static      - default
+  - relative    - position based on its current position and relative to its parent.
+  - absolute    - position based on screen | move when scrolling
+  - fixed       - fixed even when we do scroll
+  - sticky      - sticky when we do scroll
 
 13. Difference between relative and absolute?
   - relative
@@ -146,6 +146,9 @@
 22. CSS units?
   - absolute:    px, cm
   - relative:    %, em, rem, vw, vh
+  - vw : viewport width
+  - vh : viewport height
+  - v  : viewport ( screen )
 
 23. Difference between em and rem?
   - em: based on parent
@@ -245,7 +248,20 @@
 37. What is `cursor: pointer`?
   - shows hand icon on hover.
   - used mainly for button & link
+  eg: 
+    button:hover {
+      cursor: pointer;
+    }
 
 38. What is `inherit`?
+  - takes values from parent elements.
+
+  p {
+    color: inherit;
+  }
+
 39. Can CSS be used without HTML?
-40. 
+  - css needs HTML elements to apply styles.
+
+40. what is the latest css version ?
+  - CSS3
