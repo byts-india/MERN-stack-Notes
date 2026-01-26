@@ -1,0 +1,59 @@
+# HTML INTERVIEW questions
+
+1. what is HTML ?
+	- Hyper Text Markup Language
+	- is used to create structure of web pages.
+2. what are tags and attributes in HTML ?
+    - TAGS
+    	- are predefined keyords enclosed in angle brackets (<>)
+    	- used to create elements.
+		- eg: <p> Hello world </p>  
+	    - `<p>` is called open tag.
+	    - `</p>` is called close tag.
+	    -  `<p> Hello world </p>` is called element
+	    - `Hello world` is called content.
+	- ATTRIBUTES
+		- it provides additional information about elements.
+		- eg: `<img src="image.jpg" alt="Photo" />`
+		- `src`      ☝️  is source attribute in img tag.
+4. diff HTML and HTML5 ?
+		- HTML
+			- Old versio
+			- No semantic tags
+			- No audio / video supports
+			- Needs plugins
+		- HTML5
+			- Latest version
+			- has semantic tags
+			- it supports audio and video
+			- no plugins needed.
+5. what is semantic tags ?
+	- Elements that describe their meaning clearly.
+	- <header></header>
+	- <footer></footer>
+	- <section></section>
+	- <nav></nav>
+	- <aside></aside>
+	- `<div>, <span>` we should not call as semantic tags.
+6. what are empty (void) elements ?
+	- Elements without closing tags. Example
+	- There will no content placed inside this elements
+	- <br>, <hr>, <img>, <input>, <meta>
+7. diff btw <div> and <span> ?
+	- div 
+		- block-level element
+		- takes full width
+	- span
+		- inline elements
+		- takes only required width
+8. difference between <strong> and <b> ?
+	- both used for make text bold only
+	- <strong> = important meaning      (recommended)
+	- <b>      = bold styling only
+9. diff btw <em> and <i> ?
+	- <em>     = emphasis ( semantic )
+	- <i>      = italic style only
+10. Basic html structure ?
+```html
+
+```
