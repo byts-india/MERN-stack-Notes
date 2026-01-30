@@ -224,14 +224,14 @@ variable declaration
 
 ## common table
 
-|                           |var      |let      |const     |
-|---------------------------|---------|---------|----------|
-|Stored in Global Scope     |  ✅     |   ❌   |  ❌     |
-|Function Scope             |    ✅   |  ✅    | ✅      |
-|Block Scope                |    ❌   |   ✅   |    ✅   |
-|Can Be Reassigned?         |    ✅   |    ✅  |    ❌   |
-|Can Be Redeclare ?         |  ✅     |   ❌   |   ❌    |
-|Can Be hoisted             |   ✅    |    ❌  |    ❌   |
+|                           |wihtout keyword | var      |let      |const     |
+|---------------------------|---------|---|---------|----------|
+|Stored in Global Scope     |  ✅     | ✅     |   ❌   |  ❌     |
+|Function Scope             |    ✅  |✅    |  ✅    | ✅      |
+|Block Scope                |    ❌ |❌   |   ✅   |    ✅   |
+|Can Be Reassigned?         |    ✅ |✅   |    ✅  |    ❌   |
+|Can Be Redeclare ?         |  ✅  | ✅   |   ❌   |   ❌    |
+|Can Be hoisted             |   ❌  |✅  |    ❌  |    ❌   |
 
 ---
 
