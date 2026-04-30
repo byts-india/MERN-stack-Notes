@@ -1,0 +1,343 @@
+# HOW TO CREATE YOUR FIRST NODE backend PROJECT ?
+
+mkdir sample-api
+cd sample-api
+
+npm init
+npm install express
+npm install -D nodemon         ( dev dependencies )
+
+
+index.js
+    console.log("hello world");
+
+## src/app.js
+
+const express = require('express');
+const app = express();
+app.get("/",(req,res)=>{
+   res.send("Thank you...");
+});
+module.exports = app;
+
+## index.js
+
+const app = express("./src/app");
+const PORT = 5000;
+app.listen(PORT, () => {
+    console.log("server is listening on", PORT);
+}); 
+
+# backend theory
+
+## what is client ?
+- Client is an application / software who will send request
+  to server asking for resource or action.
+  eg:
+    GET /products/icecream
+    DELETE /products/icecream/102
+## what is server ?
+- Server is an application / software which will respond to the request sent by client. 
+## what is client server architecture ?
+    It is a model where multiple clients can request a central
+    server for resource or action. where server will respond back to all clients. 
+    ----------                        ------------
+    | client |   ---- request --->    | server   |
+    |        |   <--- response ---    |          |
+    ``````````                        ````````````
+    CLIENT:  will have UI or screen visible to end users.
+        eg: browser / mobile-app etc
+    SERVER:  Who manages and maintain request and databases.
+        eg: WAMP server, nginx server, node-express server
+            spring-boot server,  python flask server etc.
+## what happens when we open a website ?
+   eg: when we type https://www.google.com  and hit enter. How we can able to see a webpage ?
+
+   01. The DNS (www.google.com) will search for its corresponding IP address
+   02. It will establish a connection btw server with HTTP protocol.
+   03. It will send a request to the server.
+   04. Server will respond with HTML, CSS, JS and other asset files.
+   05. Your browser will parse HTML, apply css and execute JS files.
+   06. Finally you will see the completely rendered webpage. 
+
+   URL : Uniform resource locator
+   http://localhost:5174/login?remember=false
+   http             : protocol 
+   localhost        : DNS       ( domain name server )
+   127.0.0.1        : curresponding ip for localhost.
+   5173             : PORT number
+   /login           : path 
+   ?remember=false  : Query parameter
+
+## what is HTTP ?
+    - HTTP is a protocoal. where
+      HTTP mean Hyper Text Transfer protocol. 
+    - which is used to transfer data btw client and server
+    - it is foundation for data communication in websites. 
+## what is HTTPS ?
+    - HTTPS mean Hyper text transfer protocol secure.
+    - Where HTTPS is encrypted with SSL/TLS
+    - SSL -> Secure socket layer
+    - TLS -> Transfer layer security.
+    - HTTPS will make sure communication btw client and server is encrypted. 
+## WHAT is status code ?
+    - status code is 3 digit number reprensent server responses. 
+    - This is used to communicate the response type easily to clients. 
+
+    - 2XX - success
+    - 3XX - redirection
+    - 4XX - client error
+    - 5XX - server error
+## Common status codes:
+    - 200 - successfull
+    - 201 - created successfully
+    - 204 - no content
+    - 400 - client error
+    - 401 - unauthorized
+    - 404 - not found
+    - 500 - server error
+## what is API ?
+    - API ( Application programming interface )
+    - it is used to perform communication btw two softwares or entity. 
+    TYPES OF API
+        - SOAP          ( old statefull communication )
+        - REST API      ( new stateless communication )
+        - Websocket     eg:  chat application
+        - WebRTC        eg:  online gaming etc 
+## what is REST API ?
+    - REST API which follows REST principles ( Representational state transfer )
+    - REST API uses HTTP protocols for communication.
+    - It follows client - server architecture.
+## What is RESTfull API ?
+    - A fully functionaly REST API is called RESTfull API.
+## What are REST Principles ?
+    - Resource-based    : Everything is a resource (eg: users, product etc )
+    - client-server architecture: client send request to server and server will
+                                  respond back to client to its request.
+    - stateless         : sever doesn't store client state, each request has all
+                          necessary info
+    - cacheable         : response can be cacheable for performance. 
+    - uniform interface : uses standard http methods like
+                          GET, POST, PUT, DELETE, PATCH
+## what is node.js ?
+    - node.js is a javascript run time environment. 
+    - Usually javascript can be runned only in web browsers.
+    - Then using google chrome's V8 node.js is created, by which now we can run js outside the browsers also. 
+    - In node.js we can't manipulate DOM. as it is not running inside browser.
+    - We can do some task which we can't achieve in normal js.
+      eg:   communicating with CPU. File I/O operations etc. 
+## why node.js is very popular ?
+    - First main reason is, a developer has to learn a single programming language ( js ) for developing both frontend and backend. 
+    - Becz of its event-driven, non-blocking I/O model.
+    - Even though Node.js is single-thread it can handle multiple request at a same time using asynchronous model with the help of event-loop. 
+## diff btw ES module (ESM) vs common js (CJS) ?
+    - In ES6 version ESM has been introduced
+        - using import and export
+    - In Common js following is used, mostly used in backend. 
+        - using require() and module.exports 
+## USAGE OF HTTP METHODS:
+    - GET       : get resource
+    - POST      : create new resource
+    - PUT       : update existing resource
+    - DELETE    : deleting the resource
+    - PATCH     : update minor details in resource
+
+GET /ice-cream/all      get all ice creams
+GET /ice-ceram/2        get ice-cream with idx 2
+
+## MVC architecture
+
+- M - modal             database schema
+- V - view              view ( output )
+- C - controller        controller logic
+
+# SERVICE LAYER
+
+- this is layer available btw model and controller.
+- This layer includes
+    - all business logic
+    - you should not keep request and response 
+    logic inside service file.
+    - validation on data before processing
+    - database manipulation logics.
+- Why we need service layer, when you can do this'
+  in controller itself ?
+    ans: - It is always better to keep your controller 
+         as small as possible.
+         - Seperate business logic will help to write 
+           better unit testing.
+         - Easy for debugging.
+
+Eg:
+
+// iceCreamService.js
+const IceCreamModel = require('../model/iceCream');
+const iceCreamModel = new IceCreamModel();
+async function update(id, payload) {
+    if(typeof id !== "number") {
+        throw new Error("id should of number type.");
+    }
+    if(id <= 0) {
+        throw new Error("id should > 0");
+    }
+    for(let key in payload) {
+        await iceCreamModel.update(id, key, payload[key]);
+    }
+}
+module.exports = { update };
+
+## CONTROLLER
+Example:
+const iceCreamService = require("../service/iceCreamService");
+async function update(req, res) {
+  try {
+    const id = parseInt(req.params.id);
+    const payload = req.body;
+    await iceCreamService.update(id, payload);
+    res.status(200).json({
+      success: true,
+      message: "Updated the ice-cream successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: "Internal server error.",
+      error: error.message,
+    });
+  }
+}
+
+- controller layer responsible for handling HTTP requests and sending responses to the client.
+- controller layer exists btw service and route layer.
+- controller should handle only request and response, it should not handle business logic.
+- Responsibilites
+    - Read request data
+        - req.params / req.query / req.body / req.headers
+    - call service layers
+    - handle errors
+    - send responses
+    - send status code
+
+
+notes:
+    npm init         create package.json asking inputs.
+    npm init -y      create package.json without asking inputs.
+
+    npm i -D nodemon
+    npm i express
+
+    npm start
+    npm run start
+
+## Request handler
+
+- is a callback function which is used to handle the incoming api request.
+- In below eg. when client request for GET / in (http://localhost:5000/)
+  we will receive a html string. 
+eg:
+const express = require("express");
+const app = express();
+
+app.get("/", (req, res) => {
+    res.send('<h1 style="color:red"> hello world! </h1>');
+});
+module.exports = app;
+
+
+## response object
+res.send();
+    - you can pass following datatype
+        - string   - boolean
+        - html     - buffer
+        - array
+        - object
+res.json();
+    - Is used to send json as response.
+    - we will pass a javascript object or array which will be
+      sent as json. 
+res.sendFile();
+    - Is used to respond with a file
+    - eg:
+        http://localhost/profile-pic  
+        you can send a file for above request.
+res.redirect();
+    - You can redirect the incoming request to 
+      other routes. 
+
+## request object
+
+req.params
+    - to handle dynamic routes.
+    eg: 
+        app.get("/greet/:name/:age", (req, res) => {
+            const { name, age } = req.params;
+            res.send(`thank you ${name} of age ${age}`);
+        });
+    - we can write in below way also. 
+        eg: const age = req.params.age;
+    - always keep static routes before handling dynamic routes.
+
+req.body
+    - to get json as payload you need to include following middleware
+        app.use(express.json());
+    - which is used to parse json. 
+    - to get payload values coming from request.
+      eg:
+        const payload = req.body;
+
+req.query
+    - to get values of query parameter
+    - eg: for a request GET /greet?name=jackie&age=43
+    - example code to get values
+        const { name, age } = req.query;
+
+        eg: 
+        app.get("/greet", (req, res) => {
+            const { name, age }= req.query;
+            res.send(`thank you ${name} of age ${age}`);
+        });
+
+req.headers
+    - used to get header values of a request. 
+    - mostly used in JWT authentication.    
+        where we will get bearer token. 
+        eg:
+            const token = req.headers.authorization;
+
+# ROUTES
+
+// routes/iceCreamRoutes.js
+const express = require("express");
+const router = express.Router();
+router.get("/", (req, res) => {
+    res.send("got you all ice-creams");
+});
+module.exports = router;
+
+// routes/chocolateRoutes.js
+const express = require("express");
+const router = express.Router();
+router.get("/", (req, res) => {
+    res.send("got you all chocolates");
+});
+module.exports = router;
+
+//app.js
+const express = require("express");
+const iceCreamRouter = require('./routes/iceCreamRoutes');
+const chocolateRouter = require('./routes/chocolateRoutes');
+
+const app = express();
+app.use(express.json());
+app.use('/ice-cream', iceCreamRouter);
+app.use('/chocolate', chocolateRouter);
+
+module.exports = app;
+
+- Routes consists of logic which map corresponding request path to its corresponding handlers.
+- And we use this to group our routes.
+    eg:  all ice-cream related routes are now in seperate file
+         and same we achieve for chocolate.
+- Node.js express will match routes from top to bottom. 
+- So careful when place the order of each routes.
+
