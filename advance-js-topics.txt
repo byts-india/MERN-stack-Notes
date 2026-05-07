@@ -1,0 +1,28 @@
+
+- TDZ
+- Map Object
+Set Object
+Symbol
+reduce 
+?.
+trailing commas eg: [1,2,,,]
+call apply bind
+prototyping
+constructor function
+- pure function
+- arrow / expression / call back
+
+- IIFE ( immediatly invoked function execution )
+- closure
+- annonyomous / named function
+??
+"use strict"
+generators
+NFE
+event bubbling
+event delegation
+debouncing
+throttling
+DOM.getElementById
+DOM.getElementByClassName
+other DOM Manipulation
