@@ -60,8 +60,11 @@ const schema = new Schema({
   updated: { type: Date, default: Date.now },
   age: { type: Number, min: 18, max: 65 },
   mixed: Schema.Types.Mixed,
+  union: { type: Schema.Types.Union, of: [String, Number] },
   _someId: Schema.Types.ObjectId,
   decimal: Schema.Types.Decimal128,
+  double: Schema.Types.Double,
+  int32bit: Schema.Types.Int32,
   array: [],
   ofString: [String],
   ofNumber: [Number],
@@ -103,4 +106,5 @@ m.ofBuffer.pop();
 m.ofMixed = [1, [], 'three', { four: 5 }];
 m.nested.stuff = 'good';
 m.map = new Map([['key', 'value']]);
-m.save(callback);```
+m.save(callback);
+```
