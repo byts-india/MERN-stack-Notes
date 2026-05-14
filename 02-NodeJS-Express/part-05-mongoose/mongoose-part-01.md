@@ -1,6 +1,6 @@
 # Mongoose
 
-- Mongoose is an Object Data Modeling (ODM) library for MongoDB.
+- Mongoose is an Object Document Mapping (ODM) library for MongoDB.
 - MongoDB is a NoSQL database and Mongoose is used to interact with MongoDB by providing a schema-based solution.
 - The Mongoose acts as the abstraction layer over the MongoDB database.
 - It is generally preferred over using normal MongoDB because it simplifies the process of sending complex queries.
