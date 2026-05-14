@@ -29,11 +29,17 @@ The permitted SchemaTypes are:
 - Buffer
 - Boolean
 - Mixed
+- Union
 - ObjectId
 - Array
 - Decimal128
 - Map
+- Schema
 - UUID
+- BigInt
+- Double
+- Int32
+
 
 ```javascript
 const Blog = mongoose.model('Blog', blogSchema);
