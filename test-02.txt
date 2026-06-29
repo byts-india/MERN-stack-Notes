@@ -1,0 +1,831 @@
+================================================================
+        MySQL MCQ Questions (70) — Easy Level
+        Topics: MySQL Basics, DDL, DML, DQL, Joins, Subqueries
+================================================================
+
+-------------------------------------------------------------------
+SECTION 1: MySQL BASICS (Q1–Q10)
+-------------------------------------------------------------------
+
+Q1. What does SQL stand for?
+    A) Structured Query Language
+    B) Simple Query Language
+    C) Sequential Query Logic
+    D) Standard Query List
+    ✅ Correct Answer: A
+
+    Explanation: SQL stands for Structured Query Language. It is the standard
+    language used to interact with relational database management systems like MySQL.
+
+-------------------------------------------------------------------
+
+-------------------------------------------------------------------
+
+Q3. Which command is used to show all databases in MySQL?
+    A) LIST DATABASES;
+    B) DISPLAY DATABASES;
+    C) SHOW DATABASES;
+    D) VIEW DATABASES;
+    ✅ Correct Answer: C
+
+    Explanation: SHOW DATABASES; is the MySQL command used to list all databases
+    available on the server.
+
+-------------------------------------------------------------------
+
+Q4. Which command is used to select a specific database to work with?
+    A) OPEN database_name;
+    B) USE database_name;
+    C) SELECT database_name;
+    D) CONNECT database_name;
+    ✅ Correct Answer: B
+
+    Explanation: The USE statement in MySQL selects a database as the current
+    (default) database for subsequent SQL statements.
+
+-------------------------------------------------------------------
+
+Q5. Which of the following is NOT a valid MySQL data type?
+    A) INT
+    B) VARCHAR
+    C) STRING
+    D) DATE
+    ✅ Correct Answer: C
+
+    Explanation: MySQL does not have a STRING data type. The correct type for
+    storing variable-length text is VARCHAR or TEXT. STRING is used in some
+    other languages but not in MySQL.
+
+-------------------------------------------------------------------
+
+Q6. Which symbol is used to end a SQL statement in MySQL?
+    A) .
+    B) :
+    C) ;
+    D) /
+    ✅ Correct Answer: C
+
+    Explanation: In MySQL, a semicolon (;) is used to terminate a SQL statement,
+    signaling the end of the command to the parser.
+
+-------------------------------------------------------------------
+
+Q7. Which command shows the tables in the currently selected database?
+    A) SHOW TABLES;
+    B) LIST TABLES;
+    C) DISPLAY TABLES;
+    D) VIEW TABLES;
+    ✅ Correct Answer: A
+
+    Explanation: SHOW TABLES; lists all the tables in the currently selected
+    database in MySQL.
+
+-------------------------------------------------------------------
+
+Q8. Which of the following correctly describes a PRIMARY KEY?
+    A) A column that can have duplicate values
+    B) A column that uniquely identifies each row in a table
+    C) A column that references another table
+    D) A column that stores only NULL values
+    ✅ Correct Answer: B
+
+    Explanation: A PRIMARY KEY uniquely identifies each record in a table.
+    It cannot contain NULL values and must contain unique values.
+
+-------------------------------------------------------------------
+
+Q9. Which clause is used to filter results in a SQL query?
+    A) FILTER
+    B) LIMIT
+    C) WHERE
+    D) HAVING
+    ✅ Correct Answer: C
+
+    Explanation: The WHERE clause is used to filter records based on a specified
+    condition. It is used with SELECT, UPDATE, and DELETE statements.
+
+-------------------------------------------------------------------
+
+Q10. What does NULL represent in MySQL?
+    A) Zero
+    B) Empty string
+    C) An unknown or missing value
+    D) False
+    ✅ Correct Answer: C
+
+    Explanation: NULL in SQL represents a missing or unknown value. It is different
+    from zero (0) or an empty string (''). NULL values are handled specially
+    using IS NULL or IS NOT NULL operators.
+
+-------------------------------------------------------------------
+SECTION 2: DDL — Data Definition Language (Q11–Q25)
+-------------------------------------------------------------------
+
+Q11. What does DDL stand for?
+    A) Data Definition Language
+    B) Data Display Language
+    C) Dynamic Data Language
+    D) Data Deletion Logic
+    ✅ Correct Answer: A
+
+    Explanation: DDL stands for Data Definition Language. It includes commands
+    like CREATE, ALTER, DROP, TRUNCATE, and RENAME that define and modify the
+    structure of database objects.
+
+-------------------------------------------------------------------
+
+Q12. Which DDL command is used to create a new table in MySQL?
+    A) MAKE TABLE
+    B) NEW TABLE
+    C) CREATE TABLE
+    D) BUILD TABLE
+    ✅ Correct Answer: C
+
+    Explanation: CREATE TABLE is the DDL command used to create a new table
+    in a database. You define column names, data types, and constraints within it.
+
+-------------------------------------------------------------------
+
+Q13. Which command removes a table and all its data permanently from the database?
+    A) DELETE TABLE
+    B) REMOVE TABLE
+    C) TRUNCATE TABLE
+    D) DROP TABLE
+    ✅ Correct Answer: D
+
+    Explanation: DROP TABLE permanently removes the table structure along with all
+    its data from the database. TRUNCATE only removes data but keeps the structure.
+
+-------------------------------------------------------------------
+
+Q14. Which DDL command is used to modify an existing table structure?
+    A) MODIFY TABLE
+    B) ALTER TABLE
+    C) UPDATE TABLE
+    D) CHANGE TABLE
+    ✅ Correct Answer: B
+
+    Explanation: ALTER TABLE is used to add, delete, or modify columns in an
+    existing table. It can also add or drop constraints.
+
+-------------------------------------------------------------------
+
+Q15. Which command adds a new column to an existing table?
+    A) ALTER TABLE tbl ADD COLUMN col datatype;
+    B) INSERT COLUMN col INTO tbl;
+    C) UPDATE TABLE tbl ADD col datatype;
+    D) MODIFY TABLE tbl NEW COLUMN col;
+    ✅ Correct Answer: A
+
+    Explanation: The correct syntax to add a new column is:
+    ALTER TABLE table_name ADD COLUMN column_name datatype;
+
+-------------------------------------------------------------------
+
+Q16. What does TRUNCATE TABLE do?
+    A) Drops the table permanently
+    B) Deletes all rows but keeps the table structure
+    C) Removes a specific column
+    D) Renames the table
+    ✅ Correct Answer: B
+
+    Explanation: TRUNCATE TABLE removes all rows from a table but keeps the
+    table structure (columns, constraints, indexes) intact. It is faster than
+    DELETE for removing all rows.
+
+-------------------------------------------------------------------
+
+Q17. Which SQL statement renames a table?
+    A) ALTER TABLE old_name RENAME TO new_name;
+    B) RENAME TABLE old_name = new_name;
+    C) CHANGE TABLE old_name TO new_name;
+    D) UPDATE TABLE old_name AS new_name;
+    ✅ Correct Answer: A
+
+    Explanation: In MySQL, you can rename a table using:
+    ALTER TABLE old_name RENAME TO new_name;
+    Or equivalently: RENAME TABLE old_name TO new_name;
+
+-------------------------------------------------------------------
+
+Q18. Which constraint ensures a column cannot have NULL values?
+    A) UNIQUE
+    B) PRIMARY KEY
+    C) NOT NULL
+    D) DEFAULT
+    ✅ Correct Answer: C
+
+    Explanation: The NOT NULL constraint ensures that a column must always
+    contain a value and cannot store NULL.
+
+-------------------------------------------------------------------
+
+Q19. Which constraint ensures all values in a column are different?
+    A) DISTINCT
+    B) NOT NULL
+    C) CHECK
+    D) UNIQUE
+    ✅ Correct Answer: D
+
+    Explanation: The UNIQUE constraint ensures that all values in a column are
+    different from each other. Unlike PRIMARY KEY, a table can have multiple
+    UNIQUE columns, and they can contain NULL values.
+
+-------------------------------------------------------------------
+
+Q20. What is the DEFAULT constraint used for?
+    A) Setting the primary key
+    B) Providing a default value when no value is inserted
+    C) Preventing duplicate entries
+    D) Limiting the column size
+    ✅ Correct Answer: B
+
+    Explanation: The DEFAULT constraint provides a default value for a column
+    when no value is specified during an INSERT operation.
+
+-------------------------------------------------------------------
+
+Q21. Which of the following creates a database named "school"?
+    A) NEW DATABASE school;
+    B) CREATE DATABASE school;
+    C) MAKE DATABASE school;
+    D) BUILD DATABASE school;
+    ✅ Correct Answer: B
+
+    Explanation: CREATE DATABASE is the DDL command to create a new database.
+    The syntax is: CREATE DATABASE database_name;
+
+-------------------------------------------------------------------
+
+Q22. Which command removes an entire database?
+    A) DELETE DATABASE db_name;
+    B) REMOVE DATABASE db_name;
+    C) DROP DATABASE db_name;
+    D) ERASE DATABASE db_name;
+    ✅ Correct Answer: C
+
+    Explanation: DROP DATABASE permanently deletes a database and all its
+    tables and data. Use it with caution as it is irreversible.
+
+-------------------------------------------------------------------
+
+Q23. What is the purpose of the AUTO_INCREMENT attribute in MySQL?
+    A) Automatically increases the column size
+    B) Automatically generates a unique integer for each new row
+    C) Increments all values in the column by 1
+    D) Automatically adds a new column
+    ✅ Correct Answer: B
+
+    Explanation: AUTO_INCREMENT in MySQL automatically generates a unique
+    integer value each time a new row is inserted. It is commonly used with
+    PRIMARY KEY columns.
+
+-------------------------------------------------------------------
+
+Q24. Which command is used to see the structure of a table?
+    A) SHOW TABLE table_name;
+    B) DESCRIBE table_name;
+    C) EXPLAIN TABLE table_name;
+    D) VIEW STRUCTURE table_name;
+    ✅ Correct Answer: B
+
+    Explanation: DESCRIBE table_name; (or DESC table_name;) displays the
+    column names, data types, nullability, keys, defaults, and extra info
+    for a given table.
+
+-------------------------------------------------------------------
+
+Q25. Which keyword is used to avoid an error when creating a table that already exists?
+    A) CREATE TABLE IF EXISTS
+    B) CREATE TABLE IF NOT EXISTS
+    C) CREATE OR REPLACE TABLE
+    D) SAFE CREATE TABLE
+    ✅ Correct Answer: B
+
+    Explanation: CREATE TABLE IF NOT EXISTS creates the table only if it does
+    not already exist. This avoids throwing an error if the table is already present.
+
+-------------------------------------------------------------------
+SECTION 3: DML — Data Manipulation Language (Q26–Q42)
+-------------------------------------------------------------------
+
+Q26. What does DML stand for?
+    A) Data Management Layer
+    B) Dynamic Manipulation Logic
+    C) Data Manipulation Language
+    D) Database Modification Language
+    ✅ Correct Answer: C
+
+    Explanation: DML stands for Data Manipulation Language. It includes
+    INSERT, UPDATE, DELETE, and REPLACE — commands used to manipulate
+    data stored in tables.
+
+-------------------------------------------------------------------
+
+Q27. Which DML command is used to add new rows to a table?
+    A) ADD
+    B) INSERT
+    C) APPEND
+    D) PUSH
+    ✅ Correct Answer: B
+
+    Explanation: INSERT INTO is the DML command used to add new rows (records)
+    to a table. Syntax: INSERT INTO table_name (col1, col2) VALUES (val1, val2);
+
+-------------------------------------------------------------------
+
+Q28. What is the correct syntax to insert a new row into a table?
+    A) INSERT table_name VALUES (val1, val2);
+    B) ADD INTO table_name VALUES (val1, val2);
+    C) INSERT INTO table_name VALUES (val1, val2);
+    D) NEW INTO table_name VALUES (val1, val2);
+    ✅ Correct Answer: C
+
+    Explanation: The correct INSERT syntax is:
+    INSERT INTO table_name (column1, column2, ...) VALUES (value1, value2, ...);
+    If inserting values for all columns in order, column names can be omitted.
+
+-------------------------------------------------------------------
+
+Q29. Which command is used to modify existing records in a table?
+    A) MODIFY
+    B) CHANGE
+    C) ALTER
+    D) UPDATE
+    ✅ Correct Answer: D
+
+    Explanation: UPDATE is the DML command that changes existing data in a table.
+    Syntax: UPDATE table_name SET column = value WHERE condition;
+
+-------------------------------------------------------------------
+
+Q30. What happens if you use UPDATE without a WHERE clause?
+    A) It updates only the first row
+    B) It updates all rows in the table
+    C) It throws an error
+    D) It updates the last row only
+    ✅ Correct Answer: B
+
+    Explanation: Without a WHERE clause, the UPDATE statement will modify
+    ALL rows in the table. Always include WHERE to target specific rows.
+
+-------------------------------------------------------------------
+
+Q31. Which command is used to remove specific rows from a table?
+    A) REMOVE
+    B) ERASE
+    C) DELETE
+    D) DROP
+    ✅ Correct Answer: C
+
+    Explanation: DELETE FROM is the DML command used to remove specific rows.
+    Syntax: DELETE FROM table_name WHERE condition;
+
+-------------------------------------------------------------------
+
+Q32. What is the difference between DELETE and TRUNCATE?
+    A) DELETE removes the table; TRUNCATE removes rows
+    B) DELETE removes rows one by one (can use WHERE); TRUNCATE removes all rows at once
+    C) Both are identical
+    D) TRUNCATE can use WHERE; DELETE cannot
+    ✅ Correct Answer: B
+
+    Explanation: DELETE removes rows based on a condition and can be rolled back.
+    TRUNCATE removes ALL rows quickly without conditions and cannot be rolled back
+    in most scenarios. TRUNCATE is a DDL command; DELETE is DML.
+
+-------------------------------------------------------------------
+
+Q33. Which of the following correctly updates the salary of an employee with id = 5?
+    A) UPDATE employees SET salary = 50000 WHERE id = 5;
+    B) MODIFY employees SET salary = 50000 WHERE id = 5;
+    C) CHANGE employees salary = 50000 WHERE id = 5;
+    D) UPDATE salary = 50000 FROM employees WHERE id = 5;
+    ✅ Correct Answer: A
+
+    Explanation: The correct UPDATE syntax is:
+    UPDATE table_name SET column_name = new_value WHERE condition;
+
+-------------------------------------------------------------------
+
+Q34. Which statement correctly deletes all rows from a table named "orders"?
+    A) DELETE orders;
+    B) DELETE FROM orders;
+    C) REMOVE ALL FROM orders;
+    D) TRUNCATE FROM orders;
+    ✅ Correct Answer: B
+
+    Explanation: DELETE FROM orders; removes all rows from the "orders" table.
+    (Note: TRUNCATE orders; also works but is DDL, not DML.)
+
+-------------------------------------------------------------------
+
+Q35. How do you insert a row into only specific columns of a table?
+    A) INSERT INTO table (col1, col2) VALUES (val1, val2);
+    B) INSERT INTO table VALUES ONLY (col1=val1, col2=val2);
+    C) INSERT PARTIAL INTO table (col1, col2) VALUES (val1, val2);
+    D) ADD INTO table (col1, col2) VALUES (val1, val2);
+    ✅ Correct Answer: A
+
+    Explanation: You specify the column names in the INSERT INTO clause and
+    provide corresponding values. Columns not mentioned will get their default
+    or NULL value.
+
+-------------------------------------------------------------------
+
+Q36. Which of the following can be used to insert multiple rows in one statement?
+    A) INSERT INTO t VALUES (1,'a'); INSERT INTO t VALUES (2,'b');
+    B) INSERT INTO t VALUES (1,'a'), (2,'b');
+    C) INSERT MULTIPLE INTO t VALUES (1,'a'),(2,'b');
+    D) ADD ROWS INTO t VALUES (1,'a'),(2,'b');
+    ✅ Correct Answer: B
+
+    Explanation: MySQL supports inserting multiple rows in a single INSERT
+    statement by separating value sets with commas:
+    INSERT INTO table VALUES (val1), (val2), (val3);
+
+-------------------------------------------------------------------
+
+-------------------------------------------------------------------
+
+Q38. Which keyword can be added to UPDATE to modify multiple columns at once?
+    A) AND
+    B) ALSO
+    C) , (comma-separated in SET clause)
+    D) WITH
+    ✅ Correct Answer: C
+
+    Explanation: To update multiple columns, separate them with commas in the
+    SET clause: UPDATE t SET col1 = v1, col2 = v2 WHERE condition;
+
+-------------------------------------------------------------------
+
+Q39. What will happen if DELETE is used without a WHERE clause?
+    A) An error is thrown
+    B) Only the first row is deleted
+    C) All rows in the table are deleted
+    D) The table structure is removed
+    ✅ Correct Answer: C
+
+    Explanation: DELETE FROM table_name; without WHERE deletes every row from
+    the table, but the table structure remains intact.
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+Q42. Which of the following deletes a specific student with student_id = 10?
+    A) DELETE student_id = 10 FROM students;
+    B) DELETE FROM students WHERE student_id = 10;
+    C) REMOVE FROM students WHERE student_id = 10;
+    D) DROP ROW FROM students WHERE student_id = 10;
+    ✅ Correct Answer: B
+
+    Explanation: The correct DELETE syntax is:
+    DELETE FROM table_name WHERE condition;
+    This removes only the row(s) matching the condition.
+
+-------------------------------------------------------------------
+SECTION 4: DQL — Data Query Language (Q43–Q55)
+-------------------------------------------------------------------
+
+Q43. What does DQL stand for?
+    A) Dynamic Query Logic
+    B) Data Query Language
+    C) Database Question Logic
+    D) Data Queue List
+    ✅ Correct Answer: B
+
+    Explanation: DQL stands for Data Query Language. It primarily consists of
+    the SELECT statement used to retrieve data from one or more tables.
+
+-------------------------------------------------------------------
+
+Q44. Which command is used to retrieve all columns from a table?
+    A) GET * FROM table_name;
+    B) FETCH ALL FROM table_name;
+    C) SELECT * FROM table_name;
+    D) READ ALL FROM table_name;
+    ✅ Correct Answer: C
+
+    Explanation: SELECT * FROM table_name; retrieves all columns and all rows
+    from the specified table. The * is a wildcard that means "all columns."
+
+-------------------------------------------------------------------
+
+Q45. Which clause is used to sort the result set in SQL?
+    A) SORT BY
+    B) ORDER BY
+    C) ARRANGE BY
+    D) GROUP BY
+    ✅ Correct Answer: B
+
+    Explanation: ORDER BY is used to sort the result set in ascending (ASC)
+    or descending (DESC) order. Default is ASC.
+
+-------------------------------------------------------------------
+
+Q46. How do you select only unique values from a column?
+    A) SELECT UNIQUE col FROM table;
+    B) SELECT ONLY col FROM table;
+    C) SELECT DISTINCT col FROM table;
+    D) SELECT DIFFERENT col FROM table;
+    ✅ Correct Answer: C
+
+    Explanation: SELECT DISTINCT removes duplicate values from the result set
+    and returns only unique values for the specified column(s).
+
+-------------------------------------------------------------------
+
+Q47. Which clause is used to limit the number of rows returned?
+    A) TOP
+    B) ROWNUM
+    C) FETCH
+    D) LIMIT
+    ✅ Correct Answer: D
+
+    Explanation: In MySQL, LIMIT is used to restrict the number of rows returned.
+    Example: SELECT * FROM table_name LIMIT 10; returns the first 10 rows.
+
+-------------------------------------------------------------------
+
+Q48. What is the purpose of the GROUP BY clause?
+    A) Sorts the result
+    B) Groups rows with the same values into summary rows
+    C) Filters individual rows
+    D) Joins two tables
+    ✅ Correct Answer: B
+
+    Explanation: GROUP BY groups rows that have the same values in specified
+    columns into aggregated rows. It is typically used with aggregate functions
+    like COUNT(), SUM(), AVG(), MAX(), MIN().
+
+-------------------------------------------------------------------
+
+Q49. Which of the following aggregate functions counts the number of rows?
+    A) SUM()
+    B) TOTAL()
+    C) COUNT()
+    D) NUMBER()
+    ✅ Correct Answer: C
+
+    Explanation: COUNT() returns the number of rows matching a query.
+    COUNT(*) counts all rows; COUNT(column) counts non-NULL values in a column.
+
+-------------------------------------------------------------------
+
+Q50. Which clause filters groups after GROUP BY?
+    A) WHERE
+    B) FILTER
+    C) HAVING
+    D) GROUP FILTER
+    ✅ Correct Answer: C
+
+    Explanation: HAVING is used to filter the result of GROUP BY based on a
+    condition on aggregate functions. WHERE filters individual rows BEFORE
+    grouping; HAVING filters groups AFTER grouping.
+
+-------------------------------------------------------------------
+
+Q51. What does the LIKE operator do in a WHERE clause?
+    A) Compares two values for equality
+    B) Searches for a pattern in a column
+    C) Checks if a value is in a list
+    D) Joins two columns
+    ✅ Correct Answer: B
+
+    Explanation: LIKE is used for pattern matching in SQL.
+    % represents zero or more characters; _ represents exactly one character.
+    Example: WHERE name LIKE 'A%' — names starting with 'A'.
+
+-------------------------------------------------------------------
+
+Q52. Which SQL query retrieves names starting with 'S'?
+    A) SELECT * FROM emp WHERE name = 'S%';
+    B) SELECT * FROM emp WHERE name LIKE 'S%';
+    C) SELECT * FROM emp WHERE name CONTAINS 'S';
+    D) SELECT * FROM emp WHERE name START WITH 'S';
+    ✅ Correct Answer: B
+
+    Explanation: The LIKE operator with the % wildcard is used for pattern matching.
+    'S%' means any string starting with 'S'.
+
+-------------------------------------------------------------------
+
+Q53. Which operator checks if a value exists within a list of values?
+    A) EXISTS
+    B) BETWEEN
+    C) IN
+    D) ANY
+    ✅ Correct Answer: C
+
+    Explanation: The IN operator allows you to specify multiple values in a
+    WHERE clause. Example: WHERE dept IN ('HR', 'IT', 'Sales');
+
+-------------------------------------------------------------------
+
+Q54. What does ORDER BY salary DESC do?
+    A) Sorts salaries in ascending order
+    B) Sorts salaries from highest to lowest
+    C) Groups by salary
+    D) Filters salaries greater than a value
+    ✅ Correct Answer: B
+
+    Explanation: ORDER BY salary DESC sorts the result set by the salary column
+    in descending order — from the highest value to the lowest.
+
+-------------------------------------------------------------------
+
+Q55. Which function returns the total sum of a column?
+    A) TOTAL()
+    B) ADD()
+    C) SUM()
+    D) COUNT()
+    ✅ Correct Answer: C
+
+    Explanation: SUM() is an aggregate function that returns the total sum of
+    a numeric column. Example: SELECT SUM(salary) FROM employees;
+
+-------------------------------------------------------------------
+SECTION 5: JOINS (Q56–Q63)
+-------------------------------------------------------------------
+
+Q56. What is a JOIN in SQL?
+    A) A command to delete two tables
+    B) A way to combine rows from two or more tables based on a related column
+    C) A command to duplicate a table
+    D) A function to count rows across tables
+    ✅ Correct Answer: B
+
+    Explanation: A JOIN combines rows from two or more tables based on a common
+    column (usually a foreign key relationship). It allows querying related data
+    spread across multiple tables.
+
+-------------------------------------------------------------------
+
+Q57. Which JOIN returns only the rows that have matching values in both tables?
+    A) LEFT JOIN
+    B) RIGHT JOIN
+    C) FULL JOIN
+    D) INNER JOIN
+    ✅ Correct Answer: D
+
+    Explanation: INNER JOIN returns only the rows where there is a match in
+    both tables based on the join condition. Non-matching rows are excluded.
+
+-------------------------------------------------------------------
+
+Q58. Which JOIN returns all rows from the left table and matching rows from the right?
+    A) INNER JOIN
+    B) LEFT JOIN
+    C) RIGHT JOIN
+    D) CROSS JOIN
+    ✅ Correct Answer: B
+
+    Explanation: LEFT JOIN (or LEFT OUTER JOIN) returns all rows from the left
+    table and the matched rows from the right table. Unmatched right-side rows
+    appear as NULL.
+
+-------------------------------------------------------------------
+
+Q59. Which JOIN returns all rows from the right table and matching rows from the left?
+    A) INNER JOIN
+    B) LEFT JOIN
+    C) RIGHT JOIN
+    D) SELF JOIN
+    ✅ Correct Answer: C
+
+    Explanation: RIGHT JOIN (or RIGHT OUTER JOIN) returns all rows from the
+    right table and the matched rows from the left table. Unmatched left-side
+    rows appear as NULL.
+
+-------------------------------------------------------------------
+
+Q60. What does a CROSS JOIN produce?
+    A) Only matching rows from both tables
+    B) The Cartesian product of both tables (every row of A with every row of B)
+    C) Rows only from the left table
+    D) Rows that do not match in either table
+    ✅ Correct Answer: B
+
+    Explanation: CROSS JOIN produces the Cartesian product — each row from the
+    first table is combined with every row of the second table. If table A has
+    3 rows and table B has 4 rows, the result has 12 rows.
+
+-------------------------------------------------------------------
+
+Q61. What is a SELF JOIN?
+    A) Joining a table with another database
+    B) Joining a table with itself
+    C) Joining using the same column name
+    D) A join without a condition
+    ✅ Correct Answer: B
+
+    Explanation: A SELF JOIN is when a table is joined with itself using aliases.
+    It is useful for comparing rows within the same table, like finding employees
+    and their managers when both are in the same table.
+
+-------------------------------------------------------------------
+
+Q62. Which keyword is used to specify the join condition?
+    A) MATCH
+    B) WHERE
+    C) ON
+    D) USING
+    ✅ Correct Answer: C
+
+    Explanation: The ON keyword specifies the condition for the join.
+    Example: SELECT * FROM A INNER JOIN B ON A.id = B.id;
+    (USING is also valid when column names are the same in both tables.)
+
+-------------------------------------------------------------------
+
+Q63. What will a LEFT JOIN return when there is no match in the right table?
+    A) It skips the row
+    B) It returns NULL for the right table columns
+    C) It throws an error
+    D) It returns 0 for numeric columns
+    ✅ Correct Answer: B
+
+    Explanation: When there is no matching row in the right table, a LEFT JOIN
+    still returns the row from the left table with NULL values in all the right
+    table's columns.
+
+-------------------------------------------------------------------
+SECTION 6: SUBQUERIES (Q64–Q70)
+-------------------------------------------------------------------
+
+Q64. What is a subquery in SQL?
+    A) A query that joins multiple tables
+    B) A query nested inside another query
+    C) A query stored as a view
+    D) A query that aggregates data
+    ✅ Correct Answer: B
+
+    Explanation: A subquery (also called an inner query or nested query) is a
+    query placed inside another SQL query. The outer query uses the result of the
+    inner query.
+
+-------------------------------------------------------------------
+
+-------------------------------------------------------------------
+
+Q66. Which of the following is a correct example of a subquery?
+    A) SELECT * FROM emp WHERE salary > AVG(salary);
+    B) SELECT * FROM emp WHERE salary > (SELECT AVG(salary) FROM emp);
+    C) SELECT AVG(salary) WHERE FROM emp;
+    D) SELECT * FROM (SELECT AVG(salary));
+    ✅ Correct Answer: B
+
+    Explanation: You cannot use aggregate functions directly in WHERE. Instead,
+    use a subquery: WHERE salary > (SELECT AVG(salary) FROM emp);
+    The inner query runs first and returns the average salary.
+
+-------------------------------------------------------------------
+-------------------------------------------------------------------
+
+Q68. Which keyword is used with a subquery to check if a value matches any value in a list returned?
+    A) ALL
+    B) EXISTS
+    C) IN
+    D) BETWEEN
+    ✅ Correct Answer: C
+
+    Explanation: The IN operator can be used with a subquery to check if a value
+    matches any value in the subquery result.
+    Example: WHERE dept_id IN (SELECT dept_id FROM departments WHERE location='Chennai');
+
+-------------------------------------------------------------------
+
+Q69. What is a correlated subquery?
+    A) A subquery that runs only once
+    B) A subquery that references a column from the outer query
+    C) A subquery inside a JOIN
+    D) A subquery that returns multiple columns
+    ✅ Correct Answer: B
+
+    Explanation: A correlated subquery references a column from the outer query.
+    Unlike a regular subquery, it is evaluated once for each row processed by the
+    outer query. Example: Selecting employees earning more than the average salary
+    of their own department.
+
+-------------------------------------------------------------------
+
+Q70. What is the result of the following query structure?
+    SELECT name FROM students
+    WHERE marks = (SELECT MAX(marks) FROM students);
+
+    A) Returns all students
+    B) Returns the student(s) with the highest marks
+    C) Returns students with marks equal to the average
+    D) Returns the maximum marks value only
+    ✅ Correct Answer: B
+
+    Explanation: The inner subquery (SELECT MAX(marks) FROM students) finds the
+    highest marks. The outer query then retrieves the name(s) of student(s)
+    whose marks equal that maximum value — effectively finding the top scorer(s).
+
+================================================================
+                        END OF QUESTIONS
+        Total: 70 MCQs | Topics: MySQL, DDL, DML, DQL, Joins, Subqueries
+================================================================
