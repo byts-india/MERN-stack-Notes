@@ -1,0 +1,175 @@
+HTML Interview Questions for Freshers
+
+1.  What is HTML?
+2.  What is the difference between HTML and HTML5?
+3.  What are semantic tags? Give examples.
+4.  What is the purpose of the <!DOCTYPE html> declaration?
+5.  What is the difference between  div and span ?
+6.  What are block-level and inline elements?
+7.  What are HTML attributes?
+8.  What is the difference between id and class?
+9.  What are self-closing (void) tags?
+10. Explain headings ( h1 - h6 ).
+14. Difference between absolute and relative URLs.
+15. What is the use of target=“_blank”?
+16. What are ordered and unordered?
+17. How do you create a table?
+19. What are forms?
+20. Difference between GET and POST.
+21. Common input types.
+22. What are label, placeholder, and value?
+23. Difference between checkbox and radio.
+24. What are required, disabled, readonly?
+25. What is the use of textarea?
+26. What is the use of select and option?
+27. What is the use of iframe?
+28. Difference between section, article, aside, nav, header, footer.
+29. What is the picture element?
+30. Difference between audio and video tags.
+31. What is the alt attribute?
+33. What is the meta viewport tag?
+34. What is favicon?
+36. What is accessibility in HTML?
+37. Why use semantic HTML?
+38. What is the difference between id, name, and class?
+39. What is the pre tag?
+40. What are the most common HTML interview mistakes freshers make?
+
+
+-------------------------------------------------------------------------------
+
+CSS INTERVIEW QUESTIONS FOR FRESHERS
+=====================================
+
+BASICS
+------
+1. What is CSS and why is it used?
+2. What are the different ways to apply CSS to a web page? (inline, internal, external)
+3. What is the difference between CSS and CSS3?
+4. What is the syntax of a CSS rule?
+5. What are CSS selectors? Name a few types.
+6. What is the difference between class and id selectors?
+7. What is the CSS Box Model? Explain its components.
+8. What is the difference between padding and margin?
+9. What is the difference between margin collapsing and how does it occur?
+10. What are the different types of CSS selectors (universal, attribute, pseudo-class, pseudo-element)?
+
+SPECIFICITY & INHERITANCE
+--------------------------
+11. What is specificity in CSS and how is it calculated?
+12. What is the order of precedence in CSS (inline, id, class, tag)?
+13. What is the !important rule and when should it be used?
+14. What is inheritance in CSS? Give examples of inherited and non-inherited properties.
+15. What is the difference between inline, block, and inline-block elements?
+
+POSITIONING & LAYOUT
+---------------------
+16. What are the different values of the position property? (static, relative, absolute, fixed, sticky)
+17. What is the difference between relative and absolute positioning?
+18. What is the difference between display:none and visibility:hidden?
+19. What is Flexbox ? What are its main properties?
+20. What is CSS Grid? How is it different from Flexbox?
+21. What is the difference between Flexbox and Grid layout?
+22. What is z-index and how does it work?
+23. What is float and clear in CSS?
+24. How do you center a div horizontally and vertically?
+
+RESPONSIVE DESIGN
+------------------
+25. What is responsive web design?
+26. What are media queries and how do you use them?
+27. What is the difference between relative units (em, rem, %) and absolute units (px)?
+28. What is the difference between em and rem?
+29. What is the viewport meta tag and why is it important?
+30. What is a mobile-first approach in CSS?
+
+ADVANCED CONCEPTS
+-------------------
+31. What are pseudo-classes and pseudo-elements? Give examples.
+33. What are CSS transitions and animations?
+34. What is the difference between transition and animation?
+35. What are CSS variables (custom properties)?
+36. What is the difference between CSS Grid and Table layout?
+37. What is the use of the box-sizing property?
+38. What is the difference between content-box and border-box?
+39. What are CSS combinators (descendant, child, sibling)?
+40. What is the difference between the > and (space) selector?
+
+=====================================
+PRACTICE
+
+- Registration form
+- Login page
+- Resume
+- Student table
+- Navigation bar
+- Image gallery
+- Feedback form
+
+-------------------------------------------------------------------------------------------------
+
+JAVASCRIPT INTERVIEW QUESTIONS FOR FRESHERS
+=============================================
+
+BASICS
+------
+1. What is JavaScript and how is it different from Java?
+2. What are the data types supported by JavaScript?
+3. What is the difference between var, let, and const?
+4. What is the difference between == and ===?
+5. What are template literals?
+6. What is the difference between null and undefined?
+7. What is NaN and how do you check for it?
+8. What is type coercion in JavaScript?
+9. What is the difference between primitive and reference data types?
+10. What are truthy and falsy values in JavaScript?
+
+FUNCTIONS
+---------
+11. What is a function in JavaScript? How do you declare one?
+12. What is the difference between function declaration and function expression?
+13. What are arrow functions? How are they different from regular functions?
+14. What is a callback function?
+15. What is the difference between synchronous and asynchronous programming?
+16. What is a higher-order function?
+17. What is function hoisting?
+19. What are default parameters in functions?
+20. What is a pure function?
+
+SCOPE & CLOSURES
+------------------
+21. What is scope in JavaScript? (global, function, block)
+22. What is hoisting in JavaScript?
+23. What is a closure? Give an example.
+24. What is the temporal dead zone?
+25. What is the difference between let and var in terms of scope?
+26. What is the "this" keyword and how does its value get determined?
+
+OBJECTS & ARRAYS
+------------------
+27. What is the difference between an array and an object?
+28. How do you loop through an array in JavaScript? (for, forEach, map, etc.)
+29. What is the difference between map(), filter(), and reduce()?
+30. What is destructuring in JavaScript?
+31. What is the spread operator and rest operator?
+32. How do you clone an object in JavaScript?
+33. What is the difference between shallow copy and deep copy?
+
+ASYNCHRONOUS JAVASCRIPT
+--------------------------
+36. What is a promise in JavaScript?
+37. What are the states of a promise?
+38. What is async/await and how does it work?
+39. What is the event loop in JavaScript?
+40. What is the difference between setTimeout and setInterval?
+41. What is the difference between microtasks and macrotasks?
+42. What is callback hell and how can you avoid it?
+
+DOM & EVENTS
+--------------
+43. What is the DOM (Document Object Model)?
+44. How do you select an element in the DOM?
+
+ES6+ FEATURES
+---------------
+49. What are the new features introduced in ES6?
