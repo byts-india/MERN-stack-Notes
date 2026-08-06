@@ -231,7 +231,7 @@ variable declaration
 |Block Scope                |    ❌ |❌   |   ✅   |    ✅   |
 |Can Be Reassigned?         |    ✅ |✅   |    ✅  |    ❌   |
 |Can Be Redeclare ?         |  ✅  | ✅   |   ❌   |   ❌    |
-|Can Be hoisted             |   ❌  |✅  |    ❌  |    ❌   |
+|Can Be hoisted             |   ❌  |✅  |    ✅  |    ✅   |
 
 ---
 
